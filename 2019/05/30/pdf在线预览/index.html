@@ -1,0 +1,974 @@
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
+    
+      pdf在线预览 | 陈锋个人博客
+    
+  </title>
+  <meta name="author" content="陈锋">
+  <meta name="keywords" content="chenyuhu209">
+  <meta name="description" content="我的博客">
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
+
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
+</head>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">目录</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			当前文章&nbsp;:&nbsp;《pdf在线预览》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">主页</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">归档</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">分类</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">标签</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">关于</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">相册</a>
+		</li>
+	
+
+	
+		<li class="menu-search">
+			<a href="javascript:;" class="popup-trigger">搜索</a>
+		</li>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/05/30/pdf在线预览/" itemprop="url">
+		pdf在线预览
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	发布于
+
+	<a href="/2019/05/30/pdf在线预览/" itemprop="url">
+		<time datetime="2019-05-30T10:37:07.000Z" itemprop="datePublished">
+	  		2019-05-30
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	更新于
+
+	<a href="/2019/05/30/pdf在线预览/" itemprop="url">
+		<time datetime="2019-05-30T10:37:07.000Z" itemprop="dateUpdated">
+	  		2019-05-30
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/前端/" class=" ">
+			前端
+		</a>
+	
+		<a href="/tags/学习/" class=" ">
+			学习
+		</a>
+	
+		
+		</span>
+		
+		
+
+	
+    <span class="leancloud_visitors" id="/2019/05/30/pdf在线预览/_visitors" data-url="/2019/05/30/pdf在线预览/" data-title="pdf在线预览">
+       	<i class="fa fa-eye"></i>
+       	热度
+        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
+    </span>
+    
+
+
+
+	
+    <span class="leancloud_likes" id="/2019/05/30/pdf在线预览/_likes" data-url="/2019/05/30/pdf在线预览/" data-title="pdf在线预览" rel="unlike">
+        <i class="fa fa-heart"></i>
+        喜欢
+        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
+    </span>
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p>由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能</p>
+<h3 id="实现方式一、"><a href="#实现方式一、" class="headerlink" title="实现方式一、"></a>实现方式一、</h3><ol>
+<li><p>下载<a href="http://t.cn/EXKynMo" target="_blank" rel="noopener">pdfjs-dist</a></p>
+</li>
+<li><p>将下好的文件放入static文件目录下</p>
+<p><img src="C:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png" alt></p>
+</li>
+<li><p>在electron的主线程中通过渲染线程与主线程之间的通信获取viewer.html文件位置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听获取viewer.html文件位置、</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrl</span>(<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> filePath = process.env.NODE_ENV === <span class="string">'development'</span> ? <span class="string">`<span class="subst">$&#123;__static&#125;</span>\\pdfjs\\web\\viewer.html`</span> : path.resolve(__dirname, <span class="string">'../../../static/pdfjs/web/viewer.html'</span>)</span><br><span class="line">  win.webContents.send(<span class="string">'recieve'</span>, filePath)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// pdf预览获取viewer.html文件位置</span></span><br><span class="line">    ipcMain.on(<span class="string">'getUrl'</span>, () =&gt; getUrl(win))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在pdf.vue中写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;iframe</span><br><span class="line">        :src=<span class="string">"base + '?file=' + url"</span></span><br><span class="line">        :width=<span class="string">"width"</span></span><br><span class="line">        :height=<span class="string">"height"</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span></span>=<span class="string">"iframe-placeholder"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import &#123; ipcRenderer &#125; from 'electron' /</span><span class="regexp">/ eslint-disable-line</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  props: &#123;</span></span><br><span class="line"><span class="regexp">    url: &#123;</span></span><br><span class="line"><span class="regexp">      type: String,</span></span><br><span class="line"><span class="regexp">      default: '',</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    width: &#123;</span></span><br><span class="line"><span class="regexp">      type: Number,</span></span><br><span class="line"><span class="regexp">      default: 750</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    height: &#123;</span></span><br><span class="line"><span class="regexp">      type: Number,</span></span><br><span class="line"><span class="regexp">      default: 600</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  data() &#123;</span></span><br><span class="line"><span class="regexp">    return &#123;</span></span><br><span class="line"><span class="regexp">      preview: false,</span></span><br><span class="line"><span class="regexp">      base: '',</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  computed: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 讲义文件名</span></span><br><span class="line"><span class="regexp">    name() &#123;</span></span><br><span class="line"><span class="regexp">      const uri = decodeURI(this.url)</span></span><br><span class="line"><span class="regexp">      const arr = uri.split('/</span><span class="string">')</span></span><br><span class="line"><span class="string">      const len = arr.length</span></span><br><span class="line"><span class="string">      return arr[len - 1]</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  created() &#123;</span></span><br><span class="line"><span class="string">    // 获取viewer.html的位置</span></span><br><span class="line"><span class="string">    ipcRenderer.send('</span>getUrl<span class="string">')</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  mounted() &#123;</span></span><br><span class="line"><span class="string">    ipcRenderer.on('</span>recieve<span class="string">', (e, arg) =&gt; &#123;</span></span><br><span class="line"><span class="string">      console.log('</span>文件路径<span class="string">', arg)</span></span><br><span class="line"><span class="string">      this.base = arg</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;style lang="scss" scoped&gt;</span></span><br><span class="line"><span class="string">.wrapper &#123;</span></span><br><span class="line"><span class="string">  .info &#123;</span></span><br><span class="line"><span class="string">    width: 200px;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  .iframe-placeholder &#123;</span></span><br><span class="line"><span class="string">    background: url('</span>../../../assets/loading.svg<span class="string">') no-repeat 50% 50%;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在需要引入的地方引用即可</p>
+</li>
+</ol>
+<p><strong>问题</strong></p>
+<p>样式比较丑，但是可以实现PDF的分页和打印的功能，且在打完包后文件比较大</p>
+<h3 id="实现方式二、"><a href="#实现方式二、" class="headerlink" title="实现方式二、"></a>实现方式二、</h3><ol>
+<li><p>下载npm pdfjs-dist 包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// npm的下载方式</span></span><br><span class="line">npm i pdfjs-dist</span><br><span class="line"><span class="comment">// yarn 的下载方式</span></span><br><span class="line">yarn add pdfjs-dist</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在webpack的配置中写入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">entry: &#123;</span><br><span class="line">   renderer: path.join(__dirname, <span class="string">'../src/renderer/main.js'</span>),</span><br><span class="line">   <span class="string">'pdf.worker'</span>: <span class="string">'pdfjs-dist/build/pdf.worker.entry'</span>,</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在pdf.vue中写入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;el-dialog</span><br><span class="line">    :visible.sync=<span class="string">"pdfjsView"</span></span><br><span class="line">    title=<span class="string">""</span></span><br><span class="line">    width=<span class="string">"55%"</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span></span>=<span class="string">"cpdf"</span></span><br><span class="line">    append-to-body</span><br><span class="line">    @close=<span class="string">"pdfurl = null"</span>&gt;</span><br><span class="line">    &lt;div v-loading=<span class="string">"loading"</span> v-<span class="keyword">if</span>=<span class="string">"pdfurl"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"center"</span> style=<span class="string">"height:600px"</span>&gt;</span><br><span class="line">      &lt;canvas v-<span class="keyword">for</span>=<span class="string">"data in canvasData"</span> :key=<span class="string">"data"</span> :id=<span class="string">"'the-canvas-'+data"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"canvasstyle"</span>&gt;&lt;/canvas&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div v-else style="font-size:18px;text-align:center;font-weight:900"&gt;</span></span><br><span class="line"><span class="regexp">      没有PDF文件可以预览</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">    &lt;span slot=<span class="string">"footer"</span>&gt;</span><br><span class="line">      &lt;el-button @click=<span class="string">"pdfjsView = false"</span>&gt;取 消&lt;<span class="regexp">/el-button&gt;</span></span><br><span class="line"><span class="regexp">      &lt;el-button type="primary" @click="pdfjsView = false"&gt;确 定&lt;/</span>el-button&gt;</span><br><span class="line">    &lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>el-dialog&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script type="text/</span>ecmascript<span class="number">-6</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">import PDFJS from 'pdfjs-dist'</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  name: 'CPdf',</span></span><br><span class="line"><span class="string">  components: &#123;&#125;,</span></span><br><span class="line"><span class="string">  data() &#123;</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      pdfDoc: null, // pdfjs 生成的对象</span></span><br><span class="line"><span class="string">      pageNum: 1, //</span></span><br><span class="line"><span class="string">      pageRendering: false,</span></span><br><span class="line"><span class="string">      pageNumPending: null,</span></span><br><span class="line"><span class="string">      scale: 1.2, // 放大倍数</span></span><br><span class="line"><span class="string">      page_num: 0, // 当前页数</span></span><br><span class="line"><span class="string">      page_count: 0, // 总页数</span></span><br><span class="line"><span class="string">      maxscale: 2, // 最大放大倍数</span></span><br><span class="line"><span class="string">      minscale: 0.8, // 最小放大倍数</span></span><br><span class="line"><span class="string">      canvasData: [],</span></span><br><span class="line"><span class="string">      pdfjsView: false,</span></span><br><span class="line"><span class="string">      pdfurl: null,</span></span><br><span class="line"><span class="string">      loading: false</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  methods: &#123;</span></span><br><span class="line"><span class="string">    renderPage(num) &#123;</span></span><br><span class="line"><span class="string">      // 渲染pdf</span></span><br><span class="line"><span class="string">      const vm = this</span></span><br><span class="line"><span class="string">      this.pageRendering = true</span></span><br><span class="line"><span class="string">      const canvas = document.getElementById(`the-canvas-$&#123;num&#125;`)</span></span><br><span class="line"><span class="string">      // Using promise to fetch the page</span></span><br><span class="line"><span class="string">      this.pdfDoc.getPage(num).then((page) =&gt; &#123;</span></span><br><span class="line"><span class="string">        const viewport = page.getViewport(vm.scale)</span></span><br><span class="line"><span class="string">        // alert(vm.canvas.height)</span></span><br><span class="line"><span class="string">        canvas.height = viewport.height</span></span><br><span class="line"><span class="string">        canvas.width = viewport.width</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        // Render PDF page into canvas context</span></span><br><span class="line"><span class="string">        const renderContext = &#123;</span></span><br><span class="line"><span class="string">          //   canvasContext: vm.ctx,</span></span><br><span class="line"><span class="string">          canvasContext: canvas.getContext('2d'),</span></span><br><span class="line"><span class="string">          viewport</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">        const renderTask = page.render(renderContext)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        // Wait for rendering to finish</span></span><br><span class="line"><span class="string">        renderTask.promise.then(() =&gt; &#123;</span></span><br><span class="line"><span class="string">          vm.pageRendering = false</span></span><br><span class="line"><span class="string">          if (vm.pageNumPending !== null) &#123;</span></span><br><span class="line"><span class="string">            // New page rendering is pending</span></span><br><span class="line"><span class="string">            vm.renderPage(vm.pageNumPending)</span></span><br><span class="line"><span class="string">            vm.pageNumPending = null</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">      &#125;)</span></span><br><span class="line"><span class="string">      vm.page_num = vm.pageNum</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    getUrl(url) &#123;</span></span><br><span class="line"><span class="string">      this.pdfurl = url</span></span><br><span class="line"><span class="string">      this.pdfjsView = true</span></span><br><span class="line"><span class="string">      this.showPDf()</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    showPDf() &#123;</span></span><br><span class="line"><span class="string">      const vm = this</span></span><br><span class="line"><span class="string">      this.loading = true</span></span><br><span class="line"><span class="string">      vm.canvasData = []</span></span><br><span class="line"><span class="string">      // PDFJS.workerSrc = '../../../static/PDF/pdf.worker.min.js'</span></span><br><span class="line"><span class="string">      PDFJS.getDocument(vm.pdfurl)</span></span><br><span class="line"><span class="string">        .then((pdfDoc_) =&gt; &#123;</span></span><br><span class="line"><span class="string">        // 初始化pdf</span></span><br><span class="line"><span class="string">          vm.pdfDoc = pdfDoc_</span></span><br><span class="line"><span class="string">          vm.page_count = vm.pdfDoc.numPages</span></span><br><span class="line"><span class="string">          for (let i = 0; i &lt; vm.page_count; i += 1) &#123;</span></span><br><span class="line"><span class="string">            vm.canvasData.push(i + 1)</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          return pdfDoc_</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">        .then((pdfDoc_) =&gt; &#123;</span></span><br><span class="line"><span class="string">        // 初始化pdf</span></span><br><span class="line"><span class="string">          vm.pdfDoc = pdfDoc_</span></span><br><span class="line"><span class="string">          vm.page_count = vm.pdfDoc.numPages</span></span><br><span class="line"><span class="string">          for (let i = 0; i &lt; vm.page_count; i += 1) &#123;</span></span><br><span class="line"><span class="string">            vm.renderPage(i + 1)</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          vm.loading = false</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  computed: &#123;&#125;,</span></span><br><span class="line"><span class="string">  mounted() &#123;&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;style lang="</span>scss<span class="string">" scoped type="</span>text/css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">.cpdf &#123;</span></span><br><span class="line"><span class="string">  top: 0;</span></span><br><span class="line"><span class="string">  left: 0;</span></span><br><span class="line"><span class="string">  width: 100%;</span></span><br><span class="line"><span class="string">  height: 100%;</span></span><br><span class="line"><span class="string">  z-index: 99999;</span></span><br><span class="line"><span class="string">  display: flex;</span></span><br><span class="line"><span class="string">  justify-content: center;</span></span><br><span class="line"><span class="string">  align-items: center;</span></span><br><span class="line"><span class="string">  .center &#123;</span></span><br><span class="line"><span class="string">    text-align: center;</span></span><br><span class="line"><span class="string">    height: 100%;</span></span><br><span class="line"><span class="string">    overflow: auto;</span></span><br><span class="line"><span class="string">    padding-top: 20px;</span></span><br><span class="line"><span class="string">    .contor &#123;</span></span><br><span class="line"><span class="string">      margin-bottom: 10px;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  .page-foot &#123;</span></span><br><span class="line"><span class="string">    position: fixed;</span></span><br><span class="line"><span class="string">    left: 0px;</span></span><br><span class="line"><span class="string">    bottom: 0px;</span></span><br><span class="line"><span class="string">    width: 100%;</span></span><br><span class="line"><span class="string">    height: 56px;</span></span><br><span class="line"><span class="string">    line-height: 56px;</span></span><br><span class="line"><span class="string">    background-color: #fff;</span></span><br><span class="line"><span class="string">    text-align: center;</span></span><br><span class="line"><span class="string">    z-index: 10;</span></span><br><span class="line"><span class="string">    .foot-button &#123;</span></span><br><span class="line"><span class="string">        display: inline-block;</span></span><br><span class="line"><span class="string">        height: 56px;</span></span><br><span class="line"><span class="string">        position: relative;</span></span><br><span class="line"><span class="string">        top: -22px;</span></span><br><span class="line"><span class="string">        left: 20px;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在需要引入的地方引入即可</p>
+</li>
+</ol>
+<p><strong>问题</strong></p>
+<ul>
+<li>参考的文档<a href="http://t.cn/EA5I9cj" target="_blank" rel="noopener">思否</a> <a href="http://t.cn/EXxEgFD" target="_blank" rel="noopener">gitHub</a></li>
+</ul>
+<h3 id="实现方式三、"><a href="#实现方式三、" class="headerlink" title="实现方式三、"></a>实现方式三、</h3><p>加载 npm i electron-pdf ，由于这种方法会导致新建窗口，故没有做实验</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="https://source.unsplash.com/collection/954550/1920x1080"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">相关文章</div>
+				<div>评论</div>
+				<div>分享</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
+		
+		
+			<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" title="使用vueCli3.X搭建electron项目" rel="next">
+				下一篇&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/30/使用vueCli3-X搭建electron项目/" title="使用vueCli3.X搭建electron项目">
+								使用vueCli3.X搭建electron项目			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								vue-cli3
+🛠️ Vue.js 开发的标准工具 - 尤雨溪
+
+工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn glo...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" title="使用vueCli3.X搭建electron项目">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="使用vueCli3.X搭建electron项目">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/30/ReactNative学习指南/" title="ReactNative学习指南">
+								ReactNative学习指南			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								React-Native学习指南本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
+同时还有Awesome React Native系列 https://...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/30/ReactNative学习指南/" title="ReactNative学习指南">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="ReactNative学习指南">
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/05/30/我家菜谱/" title="我家菜谱">
+								我家菜谱			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								五月 30日, 2019				
+							</p>
+							<p class="relate-post-content">
+								素菜
+黄金玉米炒蛋
+
+
+
+麻婆豆腐
+
+
+肉菜
+左宗棠鸡
+
+
+炖菜
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/05/30/我家菜谱/" title="我家菜谱">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="我家菜谱">
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- gitalk comment -->
+			<!-- show gitalk comment -->
+<div id="gitalk-container"></div>
+
+<!-- gitalk`s css & js -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<link rel="stylesheet" href="/css/comment.css">
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+	//Thanks O-R
+	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
+	//去除尾部匹配正则数组的字符串  
+	//Remove redundant characters
+	String.prototype.trimEnd = function(regStr) {
+		var result = this;
+		if(regStr == undefined || regStr == null || regStr == "") {
+			return result;
+		}
+		var array = regStr.split(',');
+
+		if(array.length > 0) {
+
+			var c = array.shift();
+			var str = this;
+			var i = str.length;
+			var rg = new RegExp(c);
+			var matchArr = str.match(rg);
+
+			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
+				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
+					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
+					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
+					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
+					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
+					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
+					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
+					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
+				matchStr = matchStr + '$';
+				result = str.replace(new RegExp(matchStr), "");
+			}
+
+			if(array.length > 0) {
+				return result.trimEnd(array.join())
+			} else {
+				return result;
+			}
+		}
+	};
+
+	//Create gitalk
+	var gitalk = new Gitalk({
+		clientID: 'a8e8ac6304560f99eea4',
+		clientSecret: 'a9114321fe21de0594094886aa9cc5c0aa7cae5a',
+		//id: window.location.pathname,
+		//id: decodeURI(window.location.pathname),
+		//id: (window.location.pathname).split("/").pop().substring(0, 49),
+		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
+		repo: 'chenyuhu.github.io',
+		owner: 'chenyuhu',
+		admin: 'chenyuhu',
+		distractionFreeMode: 'true',
+	})
+	gitalk.render('gitalk-container');
+</script>
+
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+
+	<script>
+		var appid = 'NQao4aEHk8fBRNqmqku4rkoz-gzGzoHsz',
+            appkey = 'mki8PolVn1aGyCbuLCLSsVcb';	  
+        AnnieLeancloud(appid, appkey);         
+	</script>
+    
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by 陈锋. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+	<!--
+	时间：2018-10-3
+	描述：
+		插件名称：hexo-generator-search-zip
+		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
+		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
+-->
+<div class="popup search-popup local-search-popup">
+	<div class="local-search-container">
+		<span class="popup-btn-close">
+      		ESC
+   		</span>
+		<div class="local-search-header">
+			<div class="input-prompt">				
+			</div>
+			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
+		</div>
+		<div class="local-search-body">
+			<div id="local-search-output"></div>
+		</div>
+		<div class="local-search-footer">
+			<div class="topN-post">				
+				
+
+   
+	<div id="topN">
+		<div class="topN-title" data-title="热门文章"></div> 
+	</div>
+	
+    <script>
+        var appid = 'NQao4aEHk8fBRNqmqku4rkoz-gzGzoHsz',
+            appkey = 'mki8PolVn1aGyCbuLCLSsVcb',
+            limitCount = 10;
+        if( $('#topN').length ){
+            AV.initialize(appid, appkey);
+            var Counter = AV.Object.extend("Counter");  
+            topNPost(Counter, limitCount);
+        }
+    </script>
+   
+								
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/plugin/search/ziploader.js"></script>
+<script src="/plugin/search/search.js"></script>
+
+<script type="text/javascript">
+	var search_path = 'search.json',
+		zip_Path = '/search.zip',
+		version_Path = '/searchVersion.txt',
+		input_Trigger = 'auto',
+		top_N = '2';
+
+	themeLocalSearch({
+		search_path, 
+		zip_Path, 
+		version_Path, 
+		input_Trigger, 
+		top_N
+	});
+</script>
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
+</html>
