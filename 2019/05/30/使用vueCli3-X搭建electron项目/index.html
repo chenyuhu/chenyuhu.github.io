@@ -1,373 +1,101 @@
-<!--
-	作者：Sariay
-	时间：2018-09-25
-	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
--->
 <!DOCTYPE html>
-<html class="html-loading">
-		
-
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      使用vueCli3.X搭建electron项目 | 陈锋个人博客
-    
-  </title>
-  <meta name="author" content="陈锋">
-  <meta name="keywords" content="chenyuhu209">
-  <meta name="description" content="我的博客">
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
-
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/Annie.css">
+  <meta charset="utf-8">
   
-  <!-- jquery -->
-	<script src="/js/jquery.min.js"></script>
 
-  <!-- leancloud -->
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script src="/js/leancloud.js"></script>
+  
+  <title>使用vueCli3.X搭建electron项目 | 陈锋个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
+<meta name="keywords" content="前端,PC端,学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用vueCli3.X搭建electron项目">
+<meta property="og:url" content="http://chenyuhu.github.io/2019/05/30/使用vueCli3-X搭建electron项目/index.html">
+<meta property="og:site_name" content="陈锋个人博客">
+<meta property="og:description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
+<meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-05-30T10:11:09.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用vueCli3.X搭建electron项目">
+<meta name="twitter:description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
+  
+    <link rel="alternate" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
-
-
-<!-- header -->
-<header class="fixbackground" data-img-mode="normal" data-normal-src="https://source.unsplash.com/collection/954550/1920x1080" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
-	<div class="mask">
-		<!-- Logo and navigation -->
-		<div class="h-header">
-			<div id="logo">
-				<a href="/">
-						
-						<img src="/img/logo.png" alt="Logo">
-					
-				</a>
-			</div>
-			
-			<div id="navigation-show">
-				<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">主页</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">归档</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">分类</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">标签</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">关于</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">相册</a>
-		</li>
-	
-
-	
-		<li class="menu-search">
-			<a href="javascript:;" class="popup-trigger">搜索</a>
-		</li>
-	
-</ul>
-			</div>				
-		</div>
-
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<p class="motto"></p>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
-			</a>
-
-			
-				<!-- 
-	This is only a demo, please go to "https://time.is" to set your city time! 
--->
-<style type="text/css">
-	.header-date {
-		font-size: 1.6rem;
-		color: #fff;
-		position: absolute;
-		bottom: 5px;
-		right: 1rem;
-		writing-mode: tb-rl;
-	}	
-	
-	.header-date a {
-		border-bottom: none;
-	}
-
-	@media only screen and (max-width: 768 ) {
-		.header-date {
-			font-size: 1rem;
-		}			
-	}
-</style>
-<div class="header-date">
-	<a href="https://time.is/Beijing" id="time_is_link" rel="nofollow"></a>
-	<span id="Beijing_z43d"></span>
-</div>
-<script src="//widget.time.is/zh.js"></script>
-<script>
-	time_is_widget.init({
-		Beijing_z43d:{
-			template:"DATE", 
-			date_format:"year年 monthname dnum日"
-		}
-	});
-</script>
-			
-		</div>
-	</div>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">陈锋个人博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">我的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenyuhu.github.io"></form>
+      </div>
+    </div>
+  </div>
 </header>
-
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><h1>0.0%</h1></div>
-
-	<div class="toc-switch"><span class="switch-button">目录</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			当前文章&nbsp;:&nbsp;《使用vueCli3.X搭建electron项目》
-		
-	</p>
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<h3>Navigation</h3>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	<div class="nav-body">
-		<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">主页</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">归档</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">分类</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">标签</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">关于</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">相册</a>
-		</li>
-	
-
-	
-		<li class="menu-search">
-			<a href="javascript:;" class="popup-trigger">搜索</a>
-		</li>
-	
-</ul>
-	</div>
-	<div class="nav-footer">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-</nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
-	 
-
-<div class="layout-post">
-	<div id="layout-post">
-	<div class="article-title">
-		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-		
-	<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" itemprop="url">
-		使用vueCli3.X搭建electron项目
-	</a>
-
-	</div>
-
-	<div class="article-meta">
-		<span>
-			<i class="fa fa-calendar"></i>
-			
-
-
-	发布于
-
-	<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" itemprop="url">
-		<time datetime="2019-05-30T08:53:55.000Z" itemprop="datePublished">
-	  		2019-05-30
-	  </time>
-	</a>
-	&nbsp;
-
-
-
-
-
-			
-
-
-
-
-	更新于
-
-	<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" itemprop="url">
-		<time datetime="2019-05-30T08:53:55.000Z" itemprop="dateUpdated">
-	  		2019-05-30
-	  </time>
-	</a> 
-
-
-
-		</span>
-		<span>
-			<i class="fa fa-tags"></i>
-			
-	
-		<a href="/tags/前端/" class=" ">
-			前端
-		</a>
-	
-		<a href="/tags/学习/" class=" ">
-			学习
-		</a>
-	
-		<a href="/tags/PC端/" class=" ">
-			PC端
-		</a>
-	
-		
-		</span>
-		
-		
-
-	
-    <span class="leancloud_visitors" id="/2019/05/30/使用vueCli3-X搭建electron项目/_visitors" data-url="/2019/05/30/使用vueCli3-X搭建electron项目/" data-title="使用vueCli3.X搭建electron项目">
-       	<i class="fa fa-eye"></i>
-       	热度
-        <i class="leancloud_visitors_count" id="leancloud_visitors_count">0</i>
-    </span>
+      <div class="outer">
+        <section id="main"><article id="post-使用vueCli3-X搭建electron项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/30/使用vueCli3-X搭建electron项目/" class="article-date">
+  <time datetime="2019-05-30T08:53:55.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/工作/">工作</a>
+  </div>
 
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用vueCli3.X搭建electron项目
+    </h1>
+  
 
-
-	
-    <span class="leancloud_likes" id="/2019/05/30/使用vueCli3-X搭建electron项目/_likes" data-url="/2019/05/30/使用vueCli3-X搭建electron项目/" data-title="使用vueCli3.X搭建electron项目" rel="unlike">
-        <i class="fa fa-heart"></i>
-        喜欢
-        <i class="leancloud_likes_count" id="leancloud_likes_count">0</i>
-    </span>
-
-	</div>
-
-	<div class="article-content" id="article-content">
-		<h2 id="vue-cli3"><a href="#vue-cli3" class="headerlink" title="vue-cli3"></a>vue-cli3</h2><blockquote>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="vue-cli3"><a href="#vue-cli3" class="headerlink" title="vue-cli3"></a>vue-cli3</h2><blockquote>
 <p>🛠️ Vue.js 开发的标准工具 - 尤雨溪</p>
 </blockquote>
 <h3 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)</span><br><span class="line">$ yarn global add @vue/cli</span><br><span class="line">$ yarn global add @vue/cli-service-global</span><br></pre></td></tr></table></figure>
@@ -467,577 +195,144 @@
 </ul>
 <h2 id="修改项目的配置文件"><a href="#修改项目的配置文件" class="headerlink" title="修改项目的配置文件"></a>修改项目的配置文件</h2><h3 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 创建多窗口应用</span></span><br><span class="line">    pages: &#123;</span><br><span class="line">        index: &#123;</span><br><span class="line">            <span class="comment">// 文件的入口，一般为vue的main.js 文件</span></span><br><span class="line">            entry: <span class="string">'src/main.js'</span>,</span><br><span class="line">            <span class="comment">// 模板的来源，可以是HTML文件，即你该项目的出口文件</span></span><br><span class="line">            template:<span class="string">'public/index.html'</span>,</span><br><span class="line">            <span class="comment">// filename，打包完成后作为什么文件输出</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>,</span><br><span class="line">            <span class="comment">// 设置文件的主入口</span></span><br><span class="line">            chunks:[<span class="string">'main'</span>,<span class="string">'chunk-vendors'</span>,<span class="string">'chunk-common'</span>,<span class="string">'index'</span>],</span><br><span class="line">            <span class="comment">// title: 当使用title选项时，template中的title标签需要是&lt;title&gt;&lt;%=htmlWebpackPlugin.optons.title %&gt;&lt;/title&gt;</span></span><br><span class="line">            title:<span class="string">'私塾国际'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        email: &#123;</span><br><span class="line">            entry: <span class="string">'src/email.js'</span>,</span><br><span class="line">            template: <span class="string">'pubilc/email.html'</span>,</span><br><span class="line">            filename:<span class="string">'email.html'</span>,</span><br><span class="line">            chunks: [<span class="string">'chunk-vendors'</span>,<span class="string">'chunk-common'</span>,<span class="string">'email'</span>],</span><br><span class="line">            title: <span class="string">'私塾国际邮箱'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 添加插件的配置</span></span><br><span class="line">    pluginOptions: &#123;</span><br><span class="line">        <span class="comment">// electron-builder的配置文件</span></span><br><span class="line">        electronBuilder: &#123;</span><br><span class="line">            builderOptions: &#123;</span><br><span class="line">                files: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="string">'filter'</span>: [<span class="string">'**/*'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                extraFiles: [<span class="string">'./extensions/'</span>],</span><br><span class="line">                <span class="comment">// 应用名称</span></span><br><span class="line">                productName: <span class="string">'私塾钉钉'</span>,</span><br><span class="line">                <span class="comment">// 版权</span></span><br><span class="line">                copyright: <span class="string">'Copyright © 私塾国际学府'</span>,</span><br><span class="line">                appId: <span class="string">'com.sishucuefu.sscloud'</span>,</span><br><span class="line">                compression: <span class="string">"maximum"</span>,</span><br><span class="line">                publish: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        provider: <span class="string">'generic'</span>,</span><br><span class="line">                        url: <span class="string">'http://windows.sishuxuefu.com/download'</span>,</span><br><span class="line">                        channel: <span class="string">'latest'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">                <span class="comment">// 是否打包加密</span></span><br><span class="line">                asar: <span class="literal">true</span>,</span><br><span class="line">                <span class="comment">// 项目打包生成的文件目录</span></span><br><span class="line">                directories: &#123;</span><br><span class="line">                    output: <span class="string">'build'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">// window的icon头标</span></span><br><span class="line">                win: &#123;</span><br><span class="line">                    icon:<span class="string">'pubilc/icon.ico'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">// 是否静默安装</span></span><br><span class="line">                nsis: &#123;</span><br><span class="line">                    oneClick: <span class="literal">false</span>,</span><br><span class="line">                    allowToChangeInstallationDirectory: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 渲染线程的配置文件</span></span><br><span class="line">            chainWebpackRendererProcess: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="comment">// 渲染线程的一些其他配置</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 主入口文件</span></span><br><span class="line">            mainProcessFile: <span class="string">'src/main/main.js'</span>,</span><br><span class="line">            mainProcessWatch: [<span class="string">'src/main'</span>],</span><br><span class="line">            mainProcessArgs: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 打包时不生成.map文件，减少体积，加快速度如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。</span></span><br><span class="line">    productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。</span></span><br><span class="line">	assetsDir: <span class="string">'src/renderer/static'</span>,</span><br><span class="line">    <span class="comment">// 跨域配置</span></span><br><span class="line">  	devServer: &#123;</span><br><span class="line">    	disableHostCheck: <span class="literal">true</span></span><br><span class="line">  	&#125;,</span><br><span class="line">    <span class="comment">// css 样式</span></span><br><span class="line">    css: &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-	
-	</div>
-	
-	<div id="current-post-cover" data-scr="https://source.unsplash.com/collection/954550/1920x1080"></div>
 
-	<!-- relate post, comment...-->
-	<div class="investment-container">
-		<div class="investment-header">
-			<div class="investment-title-1">
-				<div class="on">相关文章</div>
-				<div>评论</div>
-				<div>分享</div>
-			</div>
-			<div class="investment-title-2">	            
-				
-	<span>
-		<a href="javascript: window.scrollTo(0, 0);">返回顶部</a>
-		
-			<a href="/2019/05/30/pdf在线预览/" title="pdf在线预览" rel="prev">
-				&laquo;上一篇
-			</a>
-		
-		
-			<a href="/2019/05/30/ReactNative学习指南/" title="ReactNative学习指南" rel="next">
-				下一篇&raquo;
-			</a>
-			
-	</span>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://chenyuhu.github.io/2019/05/30/使用vueCli3-X搭建electron项目/" data-id="cjww4oubf00053wphfou5hj3c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PC端/">PC端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/05/30/pdf在线预览/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          pdf在线预览
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/30/ReactNative学习指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ReactNative学习指南</div>
+    </a>
+  
+</nav>
 
-      		
-			</div>	
-		</div>
-		
-		<div class="investment-content">
-			<div class="investment-content-list">
-				
+  
+</article>
 
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/05/30/pdf在线预览/" title="pdf在线预览">
-								pdf在线预览			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 30日, 2019				
-							</p>
-							<p class="relate-post-content">
-								由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/05/30/pdf在线预览/" title="pdf在线预览">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="pdf在线预览">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/05/30/ReactNative学习指南/" title="ReactNative学习指南">
-								ReactNative学习指南			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 30日, 2019				
-							</p>
-							<p class="relate-post-content">
-								React-Native学习指南本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
-同时还有Awesome React Native系列 https://...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/05/30/ReactNative学习指南/" title="ReactNative学习指南">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="ReactNative学习指南">
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/05/30/我家菜谱/" title="我家菜谱">
-								我家菜谱			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								五月 30日, 2019				
-							</p>
-							<p class="relate-post-content">
-								素菜
-黄金玉米炒蛋
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
+    </div>
+  </div>
 
 
-
-麻婆豆腐
-
-
-肉菜
-左宗棠鸡
-
-
-炖菜
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/05/30/我家菜谱/" title="我家菜谱">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="https://source.unsplash.com/collection/954550/1920x1080" alt="我家菜谱">
-							</a>
-						</div>
-					</li>											
-			
-			
-		</ul>
-	
-</div>	
-			</div>
-			<div class="investment-content-list">
-				<div class="layout-comment">
-
-	
-
-		
-
-			<!-- gitalk comment -->
-			<!-- show gitalk comment -->
-<div id="gitalk-container"></div>
-
-<!-- gitalk`s css & js -->
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<link rel="stylesheet" href="/css/comment.css">
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<script type="text/javascript">
-	//Thanks O-R
-	//https://github.com/gitalk/gitalk/issues/102#issuecomment-382970552
-	//去除尾部匹配正则数组的字符串  
-	//Remove redundant characters
-	String.prototype.trimEnd = function(regStr) {
-		var result = this;
-		if(regStr == undefined || regStr == null || regStr == "") {
-			return result;
-		}
-		var array = regStr.split(',');
-
-		if(array.length > 0) {
-
-			var c = array.shift();
-			var str = this;
-			var i = str.length;
-			var rg = new RegExp(c);
-			var matchArr = str.match(rg);
-
-			if(matchArr != undefined && matchArr != null && matchArr.length > 0) {
-				var matchStr = matchArr[0].replace(/\\/g, "\\\\").replace(/\*/g, "\\*")
-					.replace(/\+/g, "\\+").replace(/\|/g, "\\|")
-					.replace(/\{/g, "\\{").replace(/\}/g, "\\}")
-					.replace(/\(/g, "\\(").replace(/\)/g, "\\)")
-					.replace(/\^/g, "\\^").replace(/\$/g, "\\$")
-					.replace(/\[/g, "\\[").replace(/\]/g, "\\]")
-					.replace(/\?/g, "\\?").replace(/\,/g, "\\,")
-					.replace(/\./g, "\\.").replace(/\&/g, "\\&");
-				matchStr = matchStr + '$';
-				result = str.replace(new RegExp(matchStr), "");
-			}
-
-			if(array.length > 0) {
-				return result.trimEnd(array.join())
-			} else {
-				return result;
-			}
-		}
-	};
-
-	//Create gitalk
-	var gitalk = new Gitalk({
-		clientID: 'a8e8ac6304560f99eea4',
-		clientSecret: 'a9114321fe21de0594094886aa9cc5c0aa7cae5a',
-		//id: window.location.pathname,
-		//id: decodeURI(window.location.pathname),
-		//id: (window.location.pathname).split("/").pop().substring(0, 49),
-		id: decodeURI( md5( location.href.trimEnd('#.*$,\\?.*$,index.html$') ) ),
-		repo: 'chenyuhu.github.io',
-		owner: 'chenyuhu',
-		admin: 'chenyuhu',
-		distractionFreeMode: 'true',
-	})
-	gitalk.render('gitalk-container');
-</script>
-
-		
-		
-	
-
-</div>
-			</div>
-			<div class="investment-content-list">
-				<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
-</div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PC端/">PC端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/菜谱/">菜谱</a></li></ul>
+    </div>
+  </div>
 
 
-			</div>
-		</div>	
-	</div>
-	</div>
-</div>
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/PC端/" style="font-size: 10px;">PC端</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/学习/" style="font-size: 15px;">学习</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/菜谱/" style="font-size: 10px;">菜谱</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li></ul>
+    </div>
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/05/30/pdf在线预览/">pdf在线预览</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/使用vueCli3-X搭建electron项目/">使用vueCli3.X搭建electron项目</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/ReactNative学习指南/">ReactNative学习指南</a>
+          </li>
+        
+          <li>
+            <a href="/2019/05/30/我家菜谱/">我家菜谱</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-
-	<script>
-		var appid = 'NQao4aEHk8fBRNqmqku4rkoz-gzGzoHsz',
-            appkey = 'mki8PolVn1aGyCbuLCLSsVcb';	  
-        AnnieLeancloud(appid, appkey);         
-	</script>
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 陈锋<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
     
 
-	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<!-- show math formula -->
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-
-	 
-	<script src="/plugin/clipboard/clipboard.js"></script>
-	<script>
-		// Copy code !
-	    function codePreprocessing() {
-	        $("#article-content .highlight").each(function() {
-
-	            $(this).wrap('<div id="post-code"></div>');
-
-	        })
-
-	        $("#article-content #post-code").each(function() {
-
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            var temp = $(this).next().attr('class'),
-	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-
-	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
-
-	        });
-	    }
-
-		function codeCopy() {
-		    $('#article-content #post-code').each(function(i) {
-		        var codeCopyId = 'codeCopy-' + i;
-
-		        var codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-
-		    
-			var clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn copy-status');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');
-			    
-			});
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		
-
-		}
-
-		if ($('.layout-post').length) {
-		    codePreprocessing();
-		    codeCopy();
-		} 
-	</script>
+<script src="/js/script.js"></script>
 
 
 
-
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-<script type="text/javascript">
-	var titleID = $('.article-title a'),
-		imageID = $('.article-content img'),
-		videoID = $('.article-content video');
-
-	var postTitle = titleID.text() ? titleID.text() : "No post title!";
-
-	imageID.each(function() {
-		var imgPath = $(this).attr('src'),
-			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-
-		//给每个匹配的<img>元素打包, 即添加父元素<a>
-		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
-	});
-
-	videoID.each(function() {
-		var videoPath = $(this).attr('src');
-
-		//给每个匹配的<img>元素打包, 即添加父元素<a>
-		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-	});
-	//TODO：支持html5 video
-
-	if($('#layout-post').length) {
-		$('[data-fancybox="gallery"]').fancybox({
-			loop: true,
-			buttons: [
-				"zoom",
-				"share",
-				"slideShow",
-				"fullScreen",
-				//"download",
-				"thumbs",
-				"close"
-			],
-			protect: false
-		});
-	}
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div class="social">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-		
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2019, content by 陈锋. All Rights Reserved.
-			
-			
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-
-
-		</p>
-		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
-</footer>
-		
-	<!-- set '1' to show motto in all pages! -->
-
-	<script src="/plugin/motto/motto.js"></script>
-	
-	<script type="text/javascript">
-		$(".motto").html( getMingYanContent() );
-	</script>	
-
-
-
-
-	<!--
-	时间：2018-10-3
-	描述：
-		插件名称：hexo-generator-search-zip
-		插件来源: https://github.com/SuperKieran/hexo-generator-search-zip
-		代码参考：https://github.com/SuperKieran/TKL/blob/master/layout/_partial/search.ejs(Include: js & css)	
--->
-<div class="popup search-popup local-search-popup">
-	<div class="local-search-container">
-		<span class="popup-btn-close">
-      		ESC
-   		</span>
-		<div class="local-search-header">
-			<div class="input-prompt">				
-			</div>
-			<input autocomplete="off" placeholder="Search..." type="text" id="local-search-input">
-		</div>
-		<div class="local-search-body">
-			<div id="local-search-output"></div>
-		</div>
-		<div class="local-search-footer">
-			<div class="topN-post">				
-				
-
-   
-	<div id="topN">
-		<div class="topN-title" data-title="热门文章"></div> 
-	</div>
-	
-    <script>
-        var appid = 'NQao4aEHk8fBRNqmqku4rkoz-gzGzoHsz',
-            appkey = 'mki8PolVn1aGyCbuLCLSsVcb',
-            limitCount = 10;
-        if( $('#topN').length ){
-            AV.initialize(appid, appkey);
-            var Counter = AV.Object.extend("Counter");  
-            topNPost(Counter, limitCount);
-        }
-    </script>
-   
-								
-			</div>
-		</div>
-	</div>
-</div>
-
-<script src="/plugin/search/ziploader.js"></script>
-<script src="/plugin/search/search.js"></script>
-
-<script type="text/javascript">
-	var search_path = 'search.json',
-		zip_Path = '/search.zip',
-		version_Path = '/searchVersion.txt',
-		input_Trigger = 'auto',
-		top_N = '2';
-
-	themeLocalSearch({
-		search_path, 
-		zip_Path, 
-		version_Path, 
-		input_Trigger, 
-		top_N
-	});
-</script>
-
-
-<!-- love effect -->
-
-	<script src="/plugin/love/love.js"></script>
-
-
-<!-- back to top -->
-
-	
-	<div id="totop">
-  		<a href="javascript:;" name="TOTOP" class="fa fa-arrow-up"></a>
-	</div>
-
-
-
-
-<!-- site analysis -->
-
-
-	<!-- site-analysis -->
-	
-	
-	
-	
-	
- 
-
-<script src="/plugin/vibrant/vibrant.js"></script>
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imgLazyLoader/yall.min.js"></script>
-<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/js/resizediv.js"></script>
-<script src="/js/main.js"></script>
-	</body>	
+  </div>
+</body>
 </html>
