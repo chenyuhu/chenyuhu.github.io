@@ -1,105 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
+    <meta charset="UTF-8">
 
-  
-  <title>pdf在线预览 | 陈锋个人博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能 实现方式一、 下载pdfjs-dist  将下好的文件放入static文件目录下   在electron的主线程中通过渲染线程与主线程之间">
-<meta name="keywords" content="前端,学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pdf在线预览">
-<meta property="og:url" content="http://chenyuhu.github.io/2019/05/30/pdf在线预览/index.html">
-<meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能 实现方式一、 下载pdfjs-dist  将下好的文件放入static文件目录下   在electron的主线程中通过渲染线程与主线程之间">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="c:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png">
-<meta property="og:updated_time" content="2019-05-30T10:37:55.308Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pdf在线预览">
-<meta name="twitter:description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能 实现方式一、 下载pdfjs-dist  将下好的文件放入static文件目录下   在electron的主线程中通过渲染线程与主线程之间">
-<meta name="twitter:image" content="c:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png">
-  
+    
+
+    
+
+    <title>pdf在线预览 | 陈锋个人博客</title>
+    <meta name="author" content="陈锋">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content="chenyuhu209">
+    <meta name="description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能实现方式一、下载pdfjs-dist将下好的文件放入static文件目录下在electron的主线程中通过渲染线程与主线程之间的通信获取viewer.html文件位置1234567// 监听获取viewer.html...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
     <link rel="alternate" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-</html>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">陈锋个人博客</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">我的博客</a>
-        </h2>
-      
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">陈锋个人博客</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <nav id="nav-inner" class="nav-inner">
         
-          <a class="main-nav-link" href="/">Home</a>
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+            <a class="nav-item" href="/categories/front">
+                <span class="nav-text">前端</span>
+            </a>
         
-      </nav>
-      <nav id="sub-nav">
+            <a class="nav-item" href="/categories/life">
+                <span class="nav-text">生活</span>
+            </a>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://chenyuhu.github.io"></form>
-      </div>
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://chenyuhu.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方式一、"><span class="toc-number">1.</span> <span class="toc-text">实现方式一、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方式二、"><span class="toc-number">2.</span> <span class="toc-text">实现方式二、</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现方式三、"><span class="toc-number">3.</span> <span class="toc-text">实现方式三、</span></a></li></ol>
+        
     </div>
-  </div>
+</aside>
+
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-pdf在线预览" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/30/pdf在线预览/" class="article-date">
-  <time datetime="2019-05-30T10:37:07.000Z" itemprop="datePublished">2019-05-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/工作/">工作</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
     
-    
-      <header class="article-header">
+    <header class="article-header">
         
-  
-    <h1 class="article-title" itemprop="name">
-      pdf在线预览
-    </h1>
-  
-
-      </header>
+        <h1 itemprop="name">
+            pdf在线预览
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://chenyuhu.github.io/2019/05/30/pdf在线预览/index.html">
     
-    <div class="article-entry" itemprop="articleBody">
-      
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-05-30T10:37:07.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/前端/">前端</a>, <a class="article-tag-link" href="/tags/学习/">学习</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
         <p>由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能</p>
 <h3 id="实现方式一、"><a href="#实现方式一、" class="headerlink" title="实现方式一、"></a>实现方式一、</h3><ol>
 <li><p>下载<a href="http://t.cn/EXKynMo" target="_blank" rel="noopener">pdfjs-dist</a></p>
+<a id="more"></a>
 </li>
 <li><p>将下好的文件放入static文件目录下</p>
 <p><img src="C:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png" alt></p>
@@ -134,134 +148,97 @@
 </ul>
 <h3 id="实现方式三、"><a href="#实现方式三、" class="headerlink" title="实现方式三、"></a>实现方式三、</h3><p>加载 npm i electron-pdf ，由于这种方法会导致新建窗口，故没有做实验</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://chenyuhu.github.io/2019/05/30/pdf在线预览/" data-id="cjww4oubh00073wphire88cfz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习/">学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2019/05/30/使用vueCli3-X搭建electron项目/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">使用vueCli3.X搭建electron项目</div>
-    </a>
-  
-</nav>
-
-  
+        
+    </section>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "1847cd52b6b1868d0a27",
+        clientSecret: "2dd6b382c3d850116c46ebe3bb9fad8223d2a5cf",
+        repo: "chenyuhu.github.io",
+        owner: "chenyuhu",
+        admin: ["chenyuhu"],
+        id: "2019/05/30/pdf在线预览",
+        distractionFreeMode: true,
+        title: "pdf在线预览",
+        body: "http://chenyuhu.github.io/2019/05/30/pdf在线预览/",
+        labels: ["前端","学习"]
+    }).render('comments');
+    </script>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0b10330e2df6b5076137c4407e48f9f5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/PC端/">PC端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动端/">移动端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/菜谱/">菜谱</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/PC端/" style="font-size: 10px;">PC端</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/学习/" style="font-size: 15px;">学习</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/移动端/" style="font-size: 10px;">移动端</a> <a href="/tags/菜谱/" style="font-size: 10px;">菜谱</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2019/05/30/pdf在线预览/">pdf在线预览</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/30/使用vueCli3-X搭建electron项目/">使用vueCli3.X搭建electron项目</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/30/ReactNative学习指南/">ReactNative学习指南</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/30/我家菜谱/">我家菜谱</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2019 陈锋<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
 </html>
