@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+
+    
+
+    
+
+    <title>JS的常见错误捕获方式 | 陈锋个人博客</title>
+    <meta name="author" content="陈锋">
+    <meta name="version" content="1.0.0">
+    <meta name="keywords" content="chenyuhu209">
+    <meta name="description" content="JS的常见错误的捕获方式同步错误一、 SyntaxError：语法错误语法错误，这一类错误在预解析的过程中如果遇到，就会导致整个js文件都无法执行。在vue项目中如果存在语法错误，将直接无法运行，打包也将会直接报错二、Uncaught ReferenceError：引用错误引用一个不存在的变量时发生的错误。将一个值分配给无法分配的对象，比如对函数的运行结果或者函数赋值。此类错误可以通过try-catch捕获到123456try &amp;#123;    a()&amp;#125; catch(e) ...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+
+    
+    <link rel="alternate" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <main class="app">
+        <header class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">陈锋个人博客</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/front">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/life">
+                <span class="nav-text">生活</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://chenyuhu.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#JS的常见错误的捕获方式"><span class="toc-number">1.</span> <span class="toc-text">JS的常见错误的捕获方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#同步错误"><span class="toc-number">1.1.</span> <span class="toc-text">同步错误</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、-SyntaxError：语法错误"><span class="toc-number">1.1.1.</span> <span class="toc-text">一、 SyntaxError：语法错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、Uncaught-ReferenceError：引用错误"><span class="toc-number">1.1.2.</span> <span class="toc-text">二、Uncaught ReferenceError：引用错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、RangeError-范围错误"><span class="toc-number">1.1.3.</span> <span class="toc-text">三、RangeError:范围错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、TypeError-类型错误"><span class="toc-number">1.1.4.</span> <span class="toc-text">四、TypeError:类型错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、URIError-URL错误"><span class="toc-number">1.1.5.</span> <span class="toc-text">五、URIError,URL错误</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步错误"><span class="toc-number">1.2.</span> <span class="toc-text">异步错误</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、promise-async-await错误"><span class="toc-number">1.2.1.</span> <span class="toc-text">一、promise/async-await错误</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、settimeout-setinterval-callBack错误"><span class="toc-number">1.2.2.</span> <span class="toc-text">二、settimeout/setinterval/callBack错误</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资源加载错误"><span class="toc-number">1.3.</span> <span class="toc-text">资源加载错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AJAX请求错误"><span class="toc-number">1.4.</span> <span class="toc-text">AJAX请求错误</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content"><article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            JS的常见错误捕获方式
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://chenyuhu.github.io/2019/06/15/JS的常见错误捕获方式/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-06-15T01:40:28.000Z" itemprop="datePublished">2019-06-15</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/JavaScript/">JavaScript</a>, <a class="article-tag-link" href="/tags/前端/">前端</a>, <a class="article-tag-link" href="/tags/错误/">错误</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="JS的常见错误的捕获方式"><a href="#JS的常见错误的捕获方式" class="headerlink" title="JS的常见错误的捕获方式"></a><code>JS</code>的常见错误的捕获方式</h3><h4 id="同步错误"><a href="#同步错误" class="headerlink" title="同步错误"></a>同步错误</h4><h5 id="一、-SyntaxError：语法错误"><a href="#一、-SyntaxError：语法错误" class="headerlink" title="一、 SyntaxError：语法错误"></a>一、 <code>SyntaxError</code>：语法错误</h5><p>语法错误，这一类错误在预解析的过程中如果遇到，就会导致整个<code>js</code>文件都无法执行。在<code>vue</code>项目中如果存在语法错误，将直接无法运行，打包也将会直接报错</p>
+<h5 id="二、Uncaught-ReferenceError：引用错误"><a href="#二、Uncaught-ReferenceError：引用错误" class="headerlink" title="二、Uncaught ReferenceError：引用错误"></a>二、<code>Uncaught ReferenceError</code>：引用错误</h5><p>引用一个不存在的变量时发生的错误。将一个值分配给无法分配的对象，比如对函数的运行结果或者函数赋值。此类错误可以通过<code>try-catch</code>捕获到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    a()</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'捕获到错误引用的错误==&gt;'</span>,e)</span><br><span class="line">    <span class="comment">// 捕获到错误引用的错误==&gt; Uncaught ReferenceError: a is not defined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<h5 id="三、RangeError-范围错误"><a href="#三、RangeError-范围错误" class="headerlink" title="三、RangeError:范围错误"></a>三、<code>RangeError</code>:范围错误</h5><p><code>RangeError</code>是当一个只超出有效范围时发生的错误。主要的有几种情况，第一是数组长度为负数，第二是<code>Number</code>对象的方法参数超出范围，以及函数堆栈超过最大值。此类错误可以通过<code>try-catch</code>捕获到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    [].length=<span class="number">-5</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'捕获到范围错误==&gt;'</span>,e)</span><br><span class="line">    <span class="comment">// 捕获到范围错误==&gt; Uncaught RangeError: Invalid array length</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="四、TypeError-类型错误"><a href="#四、TypeError-类型错误" class="headerlink" title="四、TypeError:类型错误"></a>四、<code>TypeError</code>:类型错误</h5><p>变量或参数不是预期类型时发生的错误。比如使用new字符串、布尔值等原始类型和调用对象不存在的方法就会抛出这种错误，因为new命令的参数应该是一个构造函数。此类错误可以通过<code>try-catch</code>捕获到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="keyword">const</span> a = &#123;&#125;</span><br><span class="line">    a()</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'捕获到类型错误==&gt;'</span>,e)</span><br><span class="line">    <span class="comment">// 捕获到类型错误==&gt; TypeError: a is not a function</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="五、URIError-URL错误"><a href="#五、URIError-URL错误" class="headerlink" title="五、URIError,URL错误"></a>五、<code>URIError,URL</code>错误</h5><p>主要就是相关函数的参数不正确；URI相关参数不正确时抛出的错误，主要涉及<code>encodeURI、decodeURI()、encodeURIComponent()、decodeURIComponent()、escape()和unescape(）</code>六个函数。此类错误可以通过<code>try-catch</code>捕获到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    <span class="built_in">decodeURI</span>(<span class="string">'%'</span>)</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'捕获URI错误==&gt;'</span>,e)</span><br><span class="line">    <span class="comment">// 捕获URI错误==&gt; URIError: URI malformed</span></span><br><span class="line">    <span class="comment">//                       at decodeURI (&lt;anonymous&gt;)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="异步错误"><a href="#异步错误" class="headerlink" title="异步错误"></a>异步错误</h4><h5 id="一、promise-async-await错误"><a href="#一、promise-async-await错误" class="headerlink" title="一、promise/async-await错误"></a>一、<code>promise/async-await</code>错误</h5><p><code>Promise</code> 是异步编程的一种解决方案，比传统的解决方案<code>callback</code>更加的优雅。它最早由社区提出和实现的，<code>ES6</code> 将其写进了语言标准，统一了用法，原生提供了<code>Promise</code>对象。<code>Promise</code>虽然可以避免回调地狱，但是一旦出现问题，无法使用<code>try-catch</code>进行捕获；这就对我们的错误捕获及处理就造成了不必要的麻烦。</p>
+<p>好在<code>ES8</code>加入了对<code>async/await</code>的支持，也就我们所说的<code>异步函数</code>，这是一个很实用的功能。 <code>async/await</code>将我们从头痛的回调地狱中解脱出来了，使整个代码看起来很简洁。<code>async-await</code>的加入是我们又可以使用<code>try-catch</code>捕获异步的错误了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 假设a是一个异步函数</span></span><br><span class="line">        <span class="keyword">await</span> a()</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'捕获到异步的错误==&gt;'</span>,e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="二、settimeout-setinterval-callBack错误"><a href="#二、settimeout-setinterval-callBack错误" class="headerlink" title="二、settimeout/setinterval/callBack错误"></a>二、<code>settimeout/setinterval/callBack</code>错误</h5><p>在<code>vue</code>中可以使用<code>window.onerror()</code>进行监听<code>settimeout/setinterval/callBack</code>的错误;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onerror = <span class="function">(<span class="params">message,url,lineNo,cloumnNo,error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// message 错误信息</span></span><br><span class="line">    <span class="comment">// url 文件名</span></span><br><span class="line">    <span class="comment">// lineNo 行号</span></span><br><span class="line">    <span class="comment">// cloumnNo 列号</span></span><br><span class="line">    <span class="comment">// error 错误信息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="资源加载错误"><a href="#资源加载错误" class="headerlink" title="资源加载错误"></a>资源加载错误</h4><p>使用<code>window.addEventListener(&#39;error&#39;)</code>捕获，<code>window.onerror</code>捕获不到资源加载错误;<code>window.onerror</code>和<code>window.addEventListener(&#39;error&#39;)</code>的异同:相同点是都可以捕获到<code>window</code>上的<code>js</code>运行时错误。区别是1.捕获到的错误参数不同 2.<code>window.addEventListener(&#39;error&#39;)</code>可以捕获资源加载错误，但是<code>window.onerror</code>不能捕获到资源加载错误</p>
+<h4 id="AJAX请求错误"><a href="#AJAX请求错误" class="headerlink" title="AJAX请求错误"></a>AJAX请求错误</h4><p>这个错误可以在axios的请求拦截器中进行捕获该错误</p>
+
+        
+    </section>
+</article>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "1847cd52b6b1868d0a27",
+        clientSecret: "2dd6b382c3d850116c46ebe3bb9fad8223d2a5cf",
+        repo: "chenyuhu.github.io",
+        owner: "chenyuhu",
+        admin: ["chenyuhu"],
+        id: "2019/06/15/JS的常见错误捕获方式",
+        distractionFreeMode: true,
+        title: "JS的常见错误捕获方式",
+        body: "http://chenyuhu.github.io/2019/06/15/JS的常见错误捕获方式/",
+        labels: ["前端","JavaScript","错误"]
+    }).render('comments');
+    </script>
+</div>
+
+</div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0b10330e2df6b5076137c4407e48f9f5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+            
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script type="text/javascript" src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+        </script>
+    
+
+</body>
+</html>

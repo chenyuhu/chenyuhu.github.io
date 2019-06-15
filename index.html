@@ -131,6 +131,50 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2019/06/15/JS的常见错误捕获方式/">JS的常见错误捕获方式</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://chenyuhu.github.io/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-06-15T01:40:28.000Z" itemprop="datePublished">2019-06-15</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/JavaScript/">JavaScript</a>, <a class="article-tag-link" href="/tags/前端/">前端</a>, <a class="article-tag-link" href="/tags/错误/">错误</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="JS的常见错误的捕获方式"><a href="#JS的常见错误的捕获方式" class="headerlink" title="JS的常见错误的捕获方式"></a><code>JS</code>的常见错误的捕获方式</h3><h4 id="同步错误"><a href="#同步错误" class="headerlink" title="同步错误"></a>同步错误</h4><h5 id="一、-SyntaxError：语法错误"><a href="#一、-SyntaxError：语法错误" class="headerlink" title="一、 SyntaxError：语法错误"></a>一、 <code>SyntaxError</code>：语法错误</h5><p>语法错误，这一类错误在预解析的过程中如果遇到，就会导致整个<code>js</code>文件都无法执行。在<code>vue</code>项目中如果存在语法错误，将直接无法运行，打包也将会直接报错</p>
+<h5 id="二、Uncaught-ReferenceError：引用错误"><a href="#二、Uncaught-ReferenceError：引用错误" class="headerlink" title="二、Uncaught ReferenceError：引用错误"></a>二、<code>Uncaught ReferenceError</code>：引用错误</h5><p>引用一个不存在的变量时发生的错误。将一个值分配给无法分配的对象，比如对函数的运行结果或者函数赋值。此类错误可以通过<code>try-catch</code>捕获到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    a()</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'捕获到错误引用的错误==&gt;'</span>,e)</span><br><span class="line">    <span class="comment">// 捕获到错误引用的错误==&gt; Uncaught ReferenceError: a is not defined</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+        <p class="article-more-link">
+            <a href="/2019/06/15/JS的常见错误捕获方式/#more">
+                <span class="vm">阅读更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2019/05/30/pdf在线预览/">pdf在线预览</a>
         </h1>
         
