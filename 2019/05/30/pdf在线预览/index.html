@@ -17,7 +17,7 @@
 <meta property="og:description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能 实现方式一、 下载pdfjs-dist">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="c:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png">
-<meta property="og:updated_time" content="2019-06-14T14:37:52.616Z">
+<meta property="og:updated_time" content="2019-06-19T11:17:09.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pdf在线预览">
 <meta name="twitter:description" content="由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能 实现方式一、 下载pdfjs-dist">
@@ -185,20 +185,24 @@
       
         <p>由于公司业务的开发需要，需要实现在electron上实现PDF的在线预览功能。electron 3.x版本后就不在支持PDF的预览功能了，官方给的解释是由于人手不够将不再支持PDF预览功能(也是醉了)，在经过一番调研结合大佬们的经验实现了PDF的在在线预览功能</p>
 <h3 id="实现方式一、"><a href="#实现方式一、" class="headerlink" title="实现方式一、"></a>实现方式一、</h3><ol>
-<li><p>下载<a href="http://t.cn/EXKynMo" target="_blank" rel="noopener">pdfjs-dist</a></p>
+<li>下载<a href="http://t.cn/EXKynMo" target="_blank" rel="noopener">pdfjs-dist</a></li>
+</ol>
 <a id="more"></a>
-</li>
-<li><p>将下好的文件放入static文件目录下</p>
+
+<p>​    2. 将下好的文件放入static文件目录下</p>
 <p><img src="C:%5CUsers%5CSSWEB%5CDesktop%5C%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20190416152436.png" alt></p>
-</li>
-<li><p>在electron的主线程中通过渲染线程与主线程之间的通信获取viewer.html文件位置</p>
+<ol start="3">
+<li>在electron的主线程中通过渲染线程与主线程之间的通信获取viewer.html文件位置</li>
+</ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听获取viewer.html文件位置、</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUrl</span>(<span class="params">win</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> filePath = process.env.NODE_ENV === <span class="string">'development'</span> ? <span class="string">`<span class="subst">$&#123;__static&#125;</span>\\pdfjs\\web\\viewer.html`</span> : path.resolve(__dirname, <span class="string">'../../../static/pdfjs/web/viewer.html'</span>)</span><br><span class="line">  win.webContents.send(<span class="string">'recieve'</span>, filePath)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// pdf预览获取viewer.html文件位置</span></span><br><span class="line">    ipcMain.on(<span class="string">'getUrl'</span>, () =&gt; getUrl(win))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在pdf.vue中写</p>
+
+<ol start="4">
+<li>在pdf.vue中写</li>
+</ol>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">   &lt;iframe</span><br><span class="line">        :src=<span class="string">"base + '?file=' + url"</span></span><br><span class="line">        :width=<span class="string">"width"</span></span><br><span class="line">        :height=<span class="string">"height"</span></span><br><span class="line">        <span class="class"><span class="keyword">class</span></span>=<span class="string">"iframe-placeholder"</span>&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">import &#123; ipcRenderer &#125; from 'electron' /</span><span class="regexp">/ eslint-disable-line</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  props: &#123;</span></span><br><span class="line"><span class="regexp">    url: &#123;</span></span><br><span class="line"><span class="regexp">      type: String,</span></span><br><span class="line"><span class="regexp">      default: '',</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    width: &#123;</span></span><br><span class="line"><span class="regexp">      type: Number,</span></span><br><span class="line"><span class="regexp">      default: 750</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    height: &#123;</span></span><br><span class="line"><span class="regexp">      type: Number,</span></span><br><span class="line"><span class="regexp">      default: 600</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  data() &#123;</span></span><br><span class="line"><span class="regexp">    return &#123;</span></span><br><span class="line"><span class="regexp">      preview: false,</span></span><br><span class="line"><span class="regexp">      base: '',</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;,</span></span><br><span class="line"><span class="regexp">  computed: &#123;</span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/ 讲义文件名</span></span><br><span class="line"><span class="regexp">    name() &#123;</span></span><br><span class="line"><span class="regexp">      const uri = decodeURI(this.url)</span></span><br><span class="line"><span class="regexp">      const arr = uri.split('/</span><span class="string">')</span></span><br><span class="line"><span class="string">      const len = arr.length</span></span><br><span class="line"><span class="string">      return arr[len - 1]</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  created() &#123;</span></span><br><span class="line"><span class="string">    // 获取viewer.html的位置</span></span><br><span class="line"><span class="string">    ipcRenderer.send('</span>getUrl<span class="string">')</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  mounted() &#123;</span></span><br><span class="line"><span class="string">    ipcRenderer.on('</span>recieve<span class="string">', (e, arg) =&gt; &#123;</span></span><br><span class="line"><span class="string">      console.log('</span>文件路径<span class="string">', arg)</span></span><br><span class="line"><span class="string">      this.base = arg</span></span><br><span class="line"><span class="string">    &#125;)</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;style lang="scss" scoped&gt;</span></span><br><span class="line"><span class="string">.wrapper &#123;</span></span><br><span class="line"><span class="string">  .info &#123;</span></span><br><span class="line"><span class="string">    width: 200px;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">  .iframe-placeholder &#123;</span></span><br><span class="line"><span class="string">    background: url('</span>../../../assets/loading.svg<span class="string">') no-repeat 50% 50%;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在需要引入的地方引用即可</p>
-</li>
+
+<ol start="5">
+<li>在需要引入的地方引用即可</li>
 </ol>
 <p><strong>问题</strong></p>
 <p>样式比较丑，但是可以实现PDF的分页和打印的功能，且在打完包后文件比较大</p>
@@ -512,10 +516,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
@@ -524,15 +524,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">移动端</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
             <div class="clearfix"></div>
