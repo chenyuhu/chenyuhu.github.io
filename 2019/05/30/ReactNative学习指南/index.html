@@ -574,21 +574,24 @@
   
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
 
-<div id="gitalk-container"></div>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: '',
-        clientSecret: '',
-        repo: 'chenyuhu.github.io',
-        owner: '',
-        admin: '',
-        id: document.title
-    })
-    gitalk.render('gitalk-container')
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '1847cd52b6b1868d0a27',
+  	clientSecret: '2dd6b382c3d850116c46ebe3bb9fad8223d2a5cf',
+  	repo: 'chenyuhu.github.io',
+  	owner: 'chenyuhu',
+  	admin: ['chenyuhu'],
+  	id: 'Thu May 30 2019 16:21:11 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
 </script>
 
     
@@ -716,11 +719,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
+                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,7 +731,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
+                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
             <div class="clearfix"></div>
