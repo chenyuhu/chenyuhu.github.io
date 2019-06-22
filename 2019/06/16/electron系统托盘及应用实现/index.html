@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://chenyuhu.github.io">
   <title>electron系统托盘及消息闪动提示 | 陈锋个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干  1.将桌面应用放入系统托盘在electron/Tray官方文档中 12345678910111213141516171819202122232425262728293031// electron index.js中....import &amp;#123; app, BrowserWind">
+  <meta name="description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干">
 <meta name="keywords" content="前端,electron,javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="electron系统托盘及消息闪动提示">
 <meta property="og:url" content="http://chenyuhu.github.io/2019/06/16/electron系统托盘及应用实现/index.html">
 <meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干  1.将桌面应用放入系统托盘在electron/Tray官方文档中 12345678910111213141516171819202122232425262728293031// electron index.js中....import &amp;#123; app, BrowserWind">
+<meta property="og:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/22/5d0daaee5f60877049.png">
-<meta property="og:updated_time" content="2019-06-22T07:43:16.498Z">
+<meta property="og:updated_time" content="2019-06-22T07:46:19.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="electron系统托盘及消息闪动提示">
-<meta name="twitter:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干  1.将桌面应用放入系统托盘在electron/Tray官方文档中 12345678910111213141516171819202122232425262728293031// electron index.js中....import &amp;#123; app, BrowserWind">
+<meta name="twitter:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干">
 <meta name="twitter:image" content="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
@@ -187,6 +187,8 @@
       
         <p> 微信启动时，系统托盘中会自动添加一个微信启动程序图标<img src="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png" alt="img">使用electron如何实现这种效果昵？废话不多说，直接开干</p>
 <p><img src="https://i.loli.net/2019/06/22/5d0daaee5f60877049.png" alt="概述"></p>
+<a id="more"></a>
+
 <h4 id="1-将桌面应用放入系统托盘"><a href="#1-将桌面应用放入系统托盘" class="headerlink" title="1.将桌面应用放入系统托盘"></a>1.将桌面应用放入系统托盘</h4><p><strong>在<a href="http://t.cn/Aip4EvMo" target="_blank" rel="noopener">electron/Tray官方文档</a>中</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// electron index.js中</span></span><br><span class="line">....</span><br><span class="line"><span class="keyword">import</span> &#123; app, BrowserWindow, ipcMain, Menu, Tray, nativeImage &#125; <span class="keyword">from</span> <span class="string">'electron'</span></span><br><span class="line">....</span><br><span class="line"><span class="keyword">let</span> tray = <span class="literal">null</span></span><br><span class="line">app.on(<span class="string">'ready'</span>, () =&gt; &#123;</span><br><span class="line">  tray = <span class="keyword">new</span> Tray(<span class="string">'/path/to/my/icon'</span>)  <span class="comment">// 坑①</span></span><br><span class="line">  <span class="comment">// 右键菜单</span></span><br><span class="line">  <span class="keyword">const</span> contextMenu = Menu.buildFromTemplate([</span><br><span class="line">    &#123;</span><br><span class="line">      label: <span class="string">'微信'</span>,</span><br><span class="line">      role: <span class="string">'redo'</span>,</span><br><span class="line">      click: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (win) &#123;</span><br><span class="line">          win.show()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123; <span class="attr">label</span>: <span class="string">'退出微信'</span>, <span class="attr">role</span>: <span class="string">'quit'</span> &#125;</span><br><span class="line">  ])</span><br><span class="line">  tray.setToolTip(<span class="string">'微信'</span>)</span><br><span class="line">  tray.setContextMenu(contextMenu)</span><br><span class="line">  tray.on(<span class="string">'click'</span>, (event,bounds,position) =&gt; &#123;  <span class="comment">// 监听单击做的时</span></span><br><span class="line">    <span class="built_in">console</span>.log(event,bounds,position)</span><br><span class="line">    <span class="keyword">if</span> (win.isVisible()) &#123;</span><br><span class="line">      win.hide()</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      win.show()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -509,30 +511,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
@@ -541,11 +519,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">错误</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
             
             <div class="clearfix"></div>
