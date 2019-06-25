@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈锋个人博客">
 <meta property="og:description" content="文件上传，我们一般是将文件转化为Blob对象进行上传；但是有没有想过，如果我的文件能够直接上传到七牛云不就好了；在一次业务的偶然性，需要直接上传文件到七牛云。我得到的文件类型是Base64格式的。之前上传的文件一直都是Blob对象，现在。。。">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-06-24T11:05:52.250Z">
+<meta property="og:updated_time" content="2019-06-25T02:11:42.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上传Base64到七牛云">
 <meta name="twitter:description" content="文件上传，我们一般是将文件转化为Blob对象进行上传；但是有没有想过，如果我的文件能够直接上传到七牛云不就好了；在一次业务的偶然性，需要直接上传文件到七牛云。我得到的文件类型是Base64格式的。之前上传的文件一直都是Blob对象，现在。。。">
@@ -206,7 +206,7 @@
 <p><strong>先按照官方的文档开始改<code>axios</code>方案</strong></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">....</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> uploadFileByAxios = <span class="keyword">async</span> (file) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 获得base64 文件的大小</span></span><br><span class="line">  <span class="keyword">let</span> baseStr = file.replace(<span class="string">'data:image/png;base64,'</span>, <span class="string">''</span>)</span><br><span class="line">  <span class="keyword">const</span> eqTagIndex = baseStr.indexOf(<span class="string">'='</span>)</span><br><span class="line">  baseStr = eqTagIndex !== <span class="number">-1</span> ? baseStr.substring(<span class="number">0</span>, eqTagIndex) : baseStr</span><br><span class="line">  <span class="keyword">const</span> strLen = baseStr.length</span><br><span class="line">  <span class="keyword">const</span> fileSize = <span class="built_in">parseInt</span>(strLen - (strLen / <span class="number">8</span>) * <span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> axios(&#123;</span><br><span class="line">      method: <span class="string">'post'</span>,</span><br><span class="line">      url: <span class="string">`http://upload.qiniup.com/putb64/<span class="subst">$&#123;fileSize&#125;</span>`</span>,</span><br><span class="line">      header: &#123;</span><br><span class="line">          <span class="string">"Content-Type"</span>: <span class="string">"application/octet-stream"</span>,</span><br><span class="line">          Authorization: <span class="string">'UpToken 填写你从服务端获取的上传token'</span> <span class="comment">// 注意这里有个空格!!!!</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>代码运行==&gt;<br>返回得到 <code>{hash: &quot;FjEi3BsHwkLm2nKFKXgyemV3y5XT&quot;, key: &quot;FjEi3BsHwkLm2nKFKXgyemV3y5XT&quot;}</code><br>这样我们就可以得到</p>
+<p>代码运行==&gt;<br>返回得到 <code>{hash: &quot;FjEi3BsHwkLm2nKFKXgyemV3y5XT&quot;, key: &quot;FjEi3BsHwkLm2nKFKXgyemV3y5XT&quot;}</code><br>这样我们就可以得到该图片的网址了 <code>http://你的网址/key</code>访问使用了</p>
 
       
 
@@ -481,27 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,6 +502,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">axios</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
               <li class="article-tag-list-item">
