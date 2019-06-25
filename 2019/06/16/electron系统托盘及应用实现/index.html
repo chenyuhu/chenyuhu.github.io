@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="陈锋个人博客">
 <meta property="og:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d1185d2de70a17868.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/22/5d0daaee5f60877049.png">
-<meta property="og:updated_time" content="2019-06-22T07:46:19.193Z">
+<meta property="og:updated_time" content="2019-06-25T02:25:32.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="electron系统托盘及消息闪动提示">
 <meta name="twitter:description" content="微信启动时，系统托盘中会自动添加一个微信启动程序图标使用electron如何实现这种效果昵？废话不多说，直接开干">
-<meta name="twitter:image" content="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/25/5d1185d2de70a17868.png">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -185,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 微信启动时，系统托盘中会自动添加一个微信启动程序图标<img src="https://images2017.cnblogs.com/blog/819169/201709/819169-20170917164046907-914084961.png" alt="img">使用electron如何实现这种效果昵？废话不多说，直接开干</p>
+        <p> 微信启动时，系统托盘中会自动添加一个微信启动程序图标<img src="https://i.loli.net/2019/06/25/5d1185d2de70a17868.png" alt="img">使用electron如何实现这种效果昵？废话不多说，直接开干</p>
 <p><img src="https://i.loli.net/2019/06/22/5d0daaee5f60877049.png" alt="概述"></p>
 <a id="more"></a>
 
@@ -201,7 +201,7 @@
 
 <p><strong>声音提示</strong></p>
 <p>若对方发送一条未读消息，提示用户滴滴滴声音🔊……至于音频(使用<code>HTML5 Audio</code>即可)什么时候停止，取决你对用户的界定.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	exports default &#123;</span><br><span class="line">    	methods: &#123;</span><br><span class="line">            haveMessage() &#123;</span><br><span class="line">                this.$electron.ipcRenderer.send(&apos;haveMessage&apos;) </span><br><span class="line">                // 这里可以放一个较短的声音文件</span><br><span class="line">                const audio = new Audio(&apos;/path/to/my/audio&apos;)</span><br><span class="line">                audio.play()               </span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	exports default &#123;</span><br><span class="line">    	methods: &#123;</span><br><span class="line">            haveMessage() &#123;</span><br><span class="line">                this.$electron.ipcRenderer.send(&apos;haveMessage&apos;)</span><br><span class="line">                // 这里可以放一个较短的声音文件</span><br><span class="line">                const audio = new Audio(&apos;/path/to/my/audio&apos;)</span><br><span class="line">                audio.play()</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-坑！！！！！"><a href="#4-坑！！！！！" class="headerlink" title="4.坑！！！！！"></a>4.坑！！！！！</h4><ul>
 <li>坑点一</li>
