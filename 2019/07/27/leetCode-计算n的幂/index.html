@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://chenyuhu.github.io">
-  <title>使用vueCli3.X搭建electron项目 | 陈锋个人博客</title>
+  <title>leetCode-计算n的幂 | 陈锋个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
-<meta name="keywords" content="前端,学习,PC端">
+  <meta name="description" content="问题？最近没事干的时候，迷上了做LeetCode的算法题。来锻炼一下自己的思维，在做LeetCode的联系题的时候，发现几道有意思且大致相同的算法题。  LeetCode-231 2的幂 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。  LeetCode-326 3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。  LeetCode-342 4的幂 给定一个整数 (32 位有">
+<meta name="keywords" content="前端,JavaScript,算法,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用vueCli3.X搭建electron项目">
-<meta property="og:url" content="http://chenyuhu.github.io/2019/05/30/使用vueCli3-X搭建electron项目/index.html">
+<meta property="og:title" content="leetCode-计算n的幂">
+<meta property="og:url" content="http://chenyuhu.github.io/2019/07/27/leetCode-计算n的幂/index.html">
 <meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
+<meta property="og:description" content="问题？最近没事干的时候，迷上了做LeetCode的算法题。来锻炼一下自己的思维，在做LeetCode的联系题的时候，发现几道有意思且大致相同的算法题。  LeetCode-231 2的幂 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。  LeetCode-326 3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。  LeetCode-342 4的幂 给定一个整数 (32 位有">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-06-19T11:16:13.548Z">
+<meta property="og:updated_time" content="2019-08-02T14:54:42.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用vueCli3.X搭建electron项目">
-<meta name="twitter:description" content="vue-cli3 🛠️ Vue.js 开发的标准工具 - 尤雨溪  工具链123$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)$ yarn global add @vue/cli$ yarn global add @vue/cli-service-global   @vue/cli: 搭建交互式的项目脚手架 @">
+<meta name="twitter:title" content="leetCode-计算n的幂">
+<meta name="twitter:description" content="问题？最近没事干的时候，迷上了做LeetCode的算法题。来锻炼一下自己的思维，在做LeetCode的联系题的时候，发现几道有意思且大致相同的算法题。  LeetCode-231 2的幂 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。  LeetCode-326 3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。  LeetCode-342 4的幂 给定一个整数 (32 位有">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -162,127 +162,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用vueCli3-X搭建electron项目" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-leetCode-计算n的幂" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用vueCli3.X搭建electron项目
+      leetCode-计算n的幂
     </h1>
   
 
         
-        <a href="/2019/05/30/使用vueCli3-X搭建electron项目/" class="archive-article-date">
-  	<time datetime="2019-05-30T08:53:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+        <a href="/2019/07/27/leetCode-计算n的幂/" class="archive-article-date">
+  	<time datetime="2019-07-27T02:11:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="vue-cli3"><a href="#vue-cli3" class="headerlink" title="vue-cli3"></a>vue-cli3</h2><blockquote>
-<p>🛠️ Vue.js 开发的标准工具 - 尤雨溪</p>
-</blockquote>
-<h3 id="工具链"><a href="#工具链" class="headerlink" title="工具链"></a>工具链</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global remove vue-cli // 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)</span><br><span class="line">$ yarn global add @vue/cli</span><br><span class="line">$ yarn global add @vue/cli-service-global</span><br></pre></td></tr></table></figure>
-
+        <h4 id="问题？"><a href="#问题？" class="headerlink" title="问题？"></a>问题？</h4><p>最近没事干的时候，迷上了做<code>LeetCode</code>的算法题。来锻炼一下自己的思维，在做<code>LeetCode</code>的联系题的时候，发现几道有意思且大致相同的算法题。</p>
 <ul>
-<li><code>@vue/cli</code>: 搭建交互式的项目脚手架</li>
-<li><code>@vue/cli-service-global</code>: 通过 <code>@vue/cli</code> + <code>@vue/cli-service-global</code> 快速开始零配置原型开发</li>
-</ul>
+<li><p><code>LeetCode-231 2的幂 给定一个整数，编写一个函数来判断它是否是 2 的幂次方。</code></p>
+</li>
+<li><p><code>LeetCode-326 3的幂 给定一个整数，写一个函数来判断它是否是 3 的幂次方。</code></p>
+</li>
+<li><p><code>LeetCode-342 4的幂 给定一个整数 (32 位有符号整数)，请编写一个函数来判断它是否是 4 的幂次方</code></p>
 <a id="more"></a>
+<p>单单只是看这几个题，不难发现这几个题难道不是一类的吗？不都是只是查看给定整数是否为n的幂次方吗？这样的话我们是不是可以把这几个题合并为同一个？</p>
+</li>
+</ul>
+<h4 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h4><p><strong>解题方案一、</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; num 给定的整数</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; n 某一位的幂次方 n不能为0 或 1</span></span><br><span class="line"><span class="comment"> * @return &#123;Boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> isPowerOfn = <span class="function">(<span class="params">num,n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(num !== <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(num !== <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num % n === <span class="number">0</span>)&#123;</span><br><span class="line">                num = num / n;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vue create sunday</span><br></pre></td></tr></table></figure>
+<p>使用循环计算值，是否为该给定数的幂</p>
+<p><strong>解决方案二、</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 对于2,8,10,16的幂的特殊解法</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> isPowerOfTwo = <span class="function">(<span class="params">n,index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> num = n.toString(index)</span><br><span class="line">  <span class="keyword">return</span> num.lastIndex(<span class="string">'1'</span>) === <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 解释</span></span><br><span class="line"><span class="comment">  * 在二进制数里面</span></span><br><span class="line"><span class="comment">  * 2 =&gt; 10</span></span><br><span class="line"><span class="comment">  * 3 =&gt; 11</span></span><br><span class="line"><span class="comment">  * 4 =&gt; 100</span></span><br><span class="line"><span class="comment">  * 6 =&gt; 110</span></span><br><span class="line"><span class="comment">  * 8 =&gt; 100</span></span><br><span class="line"><span class="comment">  * 据此类推就可以得到这个算法</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p><code>Please pick a preset</code>: 你可以选默认的包含了基本的 Babel + ESLint 设置的 preset，也可以选“手动选择特性”来选取需要的特性。默认的设置非常适合快速创建一个新项目的原型，而手动设置则提供了更多的选项，它们是面向生产的项目更加需要的</p>
-</li>
-<li><p><code>Check the features needed for your project?</code>：选择你的项目需要的特性，值的解释的是，PWA 是谷歌的Web App，Unit是单元测试、e2e是端到端测试，他们的区别请参考<a href="http://t.cn/E9eC50j" target="_blank" rel="noopener">unit单元测试和e2e端到端测试的区别</a></p>
-</li>
-<li><p>TypeScript</p>
-<ul>
-<li><code>Use class-style component syntax?</code>: 是否使用class风格的组件语法</li>
-<li><code>Use Babel alongside TypeScript for auto-detected polyfills?</code>：是否使用babel做转义</li>
-</ul>
-</li>
-<li><p>Router</p>
-<ul>
-<li><code>Use history mode for router? (Requires proper server setup for index fallback in production)</code>: 使用 history 路由模式需要服务器配合，参考 <a href="http://t.cn/EbIExna" target="_blank" rel="noopener">SPA F5刷新页面后404</a> 和  <a href="http://t.cn/RgKzymi" target="_blank" rel="noopener">HTML5 History 模式</a></li>
-</ul>
-</li>
-<li><p>CSS pre-processor</p>
-<ul>
-<li><code>Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported by default)</code>: 选择一个 CSS 预处理器<ul>
-<li>Sass/SCSS</li>
-<li>Less</li>
-<li>Stylus</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Linter / Formatter</p>
-<ul>
-<li><code>Pick a linter / formatter config</code>:  选择一个 linter和formatter的配置，建议选择基础的，然后根据自己的习惯去配置<ul>
-<li>TSLint</li>
-<li>ESLint with error prevention only</li>
-<li>ESLint + Airbnb config</li>
-<li>ESLint + Standard config</li>
-<li>ESLint + Pretiier</li>
-</ul>
-</li>
-<li><code>Pick additional lint features?</code>: 选择额外的 lint 特性<ul>
-<li><code>Lint on save</code>: 保存就检测</li>
-<li><code>Lint and fix on commit</code>: <code>fix</code>和<code>commit</code>时候检查,天下程序一大抄，尤雨溪最会抄。这块的详细描述，请参考<a href="http://t.cn/E9elGFS" target="_blank" rel="noopener">记一次gitHook带来的思考🤔</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Unit Testing: 单元测试</p>
-<ul>
-<li><code>Pick a unit testing solution</code>: 选择一个单元测试的解决方案<ul>
-<li>Mocha + Chai</li>
-<li>Jest</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>E2E Testing：端到端测试</p>
-<ul>
-<li><code>Pick a E2E testing solution</code>: 选择一个端到端测试方案<ul>
-<li>Cypress（Chrome only）</li>
-<li>Nightwatch（S饿了nium-based）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><code>Where do you prefer placing config for Babel, PostCSS, ESLint, etc.?</code> : 配置文件如何防止</p>
-<ul>
-<li><code>In dedicated config files</code>: 使用专用的配置文件</li>
-<li><code>In package.json</code>: 全部放到 package.json</li>
-</ul>
-</li>
-<li><p><code>Save this as a preset for future projects?</code>: 是否把本次选择的配置当作模版</p>
-</li>
-</ul>
-<h2 id="electron"><a href="#electron" class="headerlink" title="electron"></a>electron</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  vue add electron-builder</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>electron-builder: A Vue Cli 3 plugin for Electron with no required configuration that uses <a href="https://www.electron.build/" target="_blank" rel="noopener">Electron Builder</a>.</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yarn add electron electron-debug electron-devtools-installer -D</span><br><span class="line">$ yarn add vue-electron vuex-electron electron-updater electron-log electron-is-dev</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>electron: Electron构建跨平台应用Mac/Windows/Linux</li>
-<li>electron-debug: electron的代码调试</li>
-<li>vue-electron: 一个把 electron API 带进 Vue对象的 vue 插件</li>
-<li>vuex-electron: 最简单的在不同进程（包括主进程）间共享你的 Vuex Store的方式</li>
-<li>electron-updater: electron 热更新插件</li>
-<li>electron-log：一个向本地写日志文件的插件</li>
-<li>electron-is-dev: 检查 Electron 是不是在 开发环境下运行，然后利用它搞事情</li>
-<li>electron-devtools-installer:  一个将devtool注入到electron中的简单方式</li>
-</ul>
-<h2 id="修改项目的配置文件"><a href="#修改项目的配置文件" class="headerlink" title="修改项目的配置文件"></a>修改项目的配置文件</h2><h3 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// 创建多窗口应用</span></span><br><span class="line">    pages: &#123;</span><br><span class="line">        index: &#123;</span><br><span class="line">            <span class="comment">// 文件的入口，一般为vue的main.js 文件</span></span><br><span class="line">            entry: <span class="string">'src/main.js'</span>,</span><br><span class="line">            <span class="comment">// 模板的来源，可以是HTML文件，即你该项目的出口文件</span></span><br><span class="line">            template:<span class="string">'public/index.html'</span>,</span><br><span class="line">            <span class="comment">// filename，打包完成后作为什么文件输出</span></span><br><span class="line">            filename: <span class="string">'index.html'</span>,</span><br><span class="line">            <span class="comment">// 设置文件的主入口</span></span><br><span class="line">            chunks:[<span class="string">'main'</span>,<span class="string">'chunk-vendors'</span>,<span class="string">'chunk-common'</span>,<span class="string">'index'</span>],</span><br><span class="line">            <span class="comment">// title: 当使用title选项时，template中的title标签需要是&lt;title&gt;&lt;%=htmlWebpackPlugin.optons.title %&gt;&lt;/title&gt;</span></span><br><span class="line">            title:<span class="string">'私塾国际'</span></span><br><span class="line">        &#125;,</span><br><span class="line">        email: &#123;</span><br><span class="line">            entry: <span class="string">'src/email.js'</span>,</span><br><span class="line">            template: <span class="string">'pubilc/email.html'</span>,</span><br><span class="line">            filename:<span class="string">'email.html'</span>,</span><br><span class="line">            chunks: [<span class="string">'chunk-vendors'</span>,<span class="string">'chunk-common'</span>,<span class="string">'email'</span>],</span><br><span class="line">            title: <span class="string">'私塾国际邮箱'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 添加插件的配置</span></span><br><span class="line">    pluginOptions: &#123;</span><br><span class="line">        <span class="comment">// electron-builder的配置文件</span></span><br><span class="line">        electronBuilder: &#123;</span><br><span class="line">            builderOptions: &#123;</span><br><span class="line">                files: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="string">'filter'</span>: [<span class="string">'**/*'</span>]</span><br><span class="line">                    &#125;</span><br><span class="line">                ],</span><br><span class="line">                extraFiles: [<span class="string">'./extensions/'</span>],</span><br><span class="line">                <span class="comment">// 应用名称</span></span><br><span class="line">                productName: <span class="string">'私塾钉钉'</span>,</span><br><span class="line">                <span class="comment">// 版权</span></span><br><span class="line">                copyright: <span class="string">'Copyright © 私塾国际学府'</span>,</span><br><span class="line">                appId: <span class="string">'com.sishucuefu.sscloud'</span>,</span><br><span class="line">                compression: <span class="string">"maximum"</span>,</span><br><span class="line">                publish: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        provider: <span class="string">'generic'</span>,</span><br><span class="line">                        url: <span class="string">'http://windows.sishuxuefu.com/download'</span>,</span><br><span class="line">                        channel: <span class="string">'latest'</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">                <span class="comment">// 是否打包加密</span></span><br><span class="line">                asar: <span class="literal">true</span>,</span><br><span class="line">                <span class="comment">// 项目打包生成的文件目录</span></span><br><span class="line">                directories: &#123;</span><br><span class="line">                    output: <span class="string">'build'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">// window的icon头标</span></span><br><span class="line">                win: &#123;</span><br><span class="line">                    icon:<span class="string">'pubilc/icon.ico'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="comment">// 是否静默安装</span></span><br><span class="line">                nsis: &#123;</span><br><span class="line">                    oneClick: <span class="literal">false</span>,</span><br><span class="line">                    allowToChangeInstallationDirectory: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 渲染线程的配置文件</span></span><br><span class="line">            chainWebpackRendererProcess: <span class="function"><span class="params">config</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="comment">// 渲染线程的一些其他配置</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 主入口文件</span></span><br><span class="line">            mainProcessFile: <span class="string">'src/main/main.js'</span>,</span><br><span class="line">            mainProcessWatch: [<span class="string">'src/main'</span>],</span><br><span class="line">            mainProcessArgs: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 打包时不生成.map文件，减少体积，加快速度如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。</span></span><br><span class="line">    productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。</span></span><br><span class="line">	assetsDir: <span class="string">'src/renderer/static'</span>,</span><br><span class="line">    <span class="comment">// 跨域配置</span></span><br><span class="line">  	devServer: &#123;</span><br><span class="line">    	disableHostCheck: <span class="literal">true</span></span><br><span class="line">  	&#125;,</span><br><span class="line">    <span class="comment">// css 样式</span></span><br><span class="line">    css: &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解决方案三、</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 这是一个通用的解决方案</span></span><br><span class="line"><span class="comment">  * 看不懂的问一下数学老师</span></span><br><span class="line"><span class="comment">  * 简单来说就是 log81 / log9 = 2</span></span><br><span class="line"><span class="comment">  * 而 log82 / log 9 = 2.00558</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> isPowerOfTwo = <span class="function">(<span class="params">n,index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> num = <span class="built_in">Math</span>.log10(n)/<span class="built_in">Math</span>.log10(index)</span><br><span class="line">  <span class="keyword">return</span> num % <span class="number">1</span> === <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -322,28 +241,21 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PC端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/front//" class="article-tag-list-link color1">front</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -393,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2019/05/30/使用vueCli3-X搭建electron项目/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2019/07/27/leetCode-计算n的幂/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -407,18 +319,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/05/30/pdf在线预览/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          pdf在线预览
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/05/30/ReactNative学习指南/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ReactNative学习指南</div>
+    <a href="/2019/07/22/动态展示列表格的实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">动态展示列表格的实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -466,7 +369,7 @@ if(true){
   	repo: 'chenyuhu.js.org',
   	owner: 'chenyuhu',
   	admin: ['chenyuhu'],
-  	id: 'Thu May 30 2019 16:53:55 GMT+0800',
+  	id: 'Sat Jul 27 2019 10:11:21 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container')
