@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈锋个人博客">
 <meta property="og:description" content="类型推论如果没有明确的指定类型，那么TypeScript会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，typescript就默认这个变量的类型就为这个类型。例如： 1234567let isNum = &apos;7&apos;isNum = 7  // Type &apos;number&apos; is not assignable to type &apos;string&apos;.//  实际上类型推断就是默认给变量加上对应的类型/">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-10-19T10:39:50.869Z">
+<meta property="og:updated_time" content="2019-10-19T10:42:37.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="即将一统天下的TypeScript(二)">
 <meta name="twitter:description" content="类型推论如果没有明确的指定类型，那么TypeScript会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，typescript就默认这个变量的类型就为这个类型。例如： 1234567let isNum = &apos;7&apos;isNum = 7  // Type &apos;number&apos; is not assignable to type &apos;string&apos;.//  实际上类型推断就是默认给变量加上对应的类型/">
@@ -200,24 +200,16 @@
 <hr>
 <h3 id="对象的类型–接口"><a href="#对象的类型–接口" class="headerlink" title="对象的类型–接口"></a>对象的类型–接口</h3><p>在 <code>TypeScript</code> 中，我们使用接口（<code>Interfaces</code>）来定义引用的类型。</p>
 <h4 id="什么是接口？"><a href="#什么是接口？" class="headerlink" title="什么是接口？"></a>什么是接口？</h4><p>这里的接口不是前端发送请求调用后端的接口。而是对引用类型的形状进行描述，可以理解为定义了一种类型，主要是对变量进行约束。约束主要体现在：</p>
-<ol>
-<li><strong>固定属性</strong> 定义变量不能比接口多属性，也不能比接口少属性。赋值的时候，变量的形状必须和接口的形状保持一致</li>
-</ol>
+<p>一、 <strong>固定属性</strong> 定义变量不能比接口多属性，也不能比接口少属性。赋值的时候，变量的形状必须和接口的形状保持一致</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    name: <span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> faker: Person = &#123;</span><br><span class="line">    name: <span class="string">'faker'</span> <span class="comment">//Type '&#123; name: string &#125;' is not assignable to type 'Person'.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> xiaohu: Person = &#123;</span><br><span class="line">    name: <span class="string">'xiaohu'</span>,</span><br><span class="line">    age: <span class="number">25</span>,</span><br><span class="line">    theater: <span class="string">'lpl'</span> <span class="comment">// Type '&#123; name: string;age:number;theater: string &#125;' is not assignable to type 'Person'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><strong>可选属性</strong>，有时我们希望不要完全匹配一个引用类型的形状，那么就可以选用可选属性</li>
-</ol>
+<p>二、 <strong>可选属性</strong>，有时我们希望不要完全匹配一个引用类型的形状，那么就可以选用可选属性</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123; <span class="comment">// ok</span></span><br><span class="line">    name:<span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">15</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> xiaohu: Person = &#123; <span class="comment">// ok</span></span><br><span class="line">    name: <span class="string">'xiaohu'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> faker: Person = &#123; <span class="comment">// error</span></span><br><span class="line">    age: <span class="number">15</span>,</span><br><span class="line">    theater: <span class="string">'lck'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li><strong>任意属性</strong>  有时候我们希望一个接口允许有任意属性，可以使用下面的方法</li>
-</ol>
+<p>三、 <strong>任意属性</strong>  有时候我们希望一个接口允许有任意属性，可以使用下面的方法</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    name: <span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">12</span>,</span><br><span class="line">    theater: <span class="string">'lpl'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li><strong>只读属性</strong> 有时候我们希望对象中的一些字段只能在创建的时候被赋值，那么可以用 <code>readonly</code> 定义只读属性：</li>
-</ol>
+<p>四、 <strong>只读属性</strong> 有时候我们希望对象中的一些字段只能在创建的时候被赋值，那么可以用 <code>readonly</code> 定义只读属性：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    readonly id: <span class="built_in">string</span>;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    id: <span class="string">'006'</span>,</span><br><span class="line">    name: <span class="string">'uzi'</span></span><br><span class="line">&#125;</span><br><span class="line">uzi.id = <span class="string">'008'</span> <span class="comment">// Cannot assign to 'id' because it is a constant or a read-only property</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>注意，只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候</strong>：</p>
@@ -508,6 +500,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">element ui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -520,10 +524,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
               </li>
              
@@ -532,11 +532,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">element ui</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,10 +541,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
