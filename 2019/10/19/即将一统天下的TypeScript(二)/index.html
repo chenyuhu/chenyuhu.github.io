@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://chenyuhu.github.io">
-  <title>Archives: 2019/7 | 陈锋个人博客</title>
+  <title>即将一统天下的TypeScript(二) | 陈锋个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="陈锋个人用来记录学习记录的博客文档">
-<meta name="keywords" content="chenyuhu209">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈锋个人博客">
-<meta property="og:url" content="http://chenyuhu.github.io/archives/2019/07/index.html">
+  <meta name="description" content="类型推论如果没有明确的指定类型，那么TypeScript会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，typescript就默认这个变量的类型就为这个类型。例如： 1234567let isNum = &apos;7&apos;isNum = 7  // Type &apos;number&apos; is not assignable to type &apos;string&apos;.//  实际上类型推断就是默认给变量加上对应的类型/">
+<meta name="keywords" content="前端,学习,笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="即将一统天下的TypeScript(二)">
+<meta property="og:url" content="http://chenyuhu.github.io/2019/10/19/即将一统天下的TypeScript(二)/index.html">
 <meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="陈锋个人用来记录学习记录的博客文档">
+<meta property="og:description" content="类型推论如果没有明确的指定类型，那么TypeScript会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，typescript就默认这个变量的类型就为这个类型。例如： 1234567let isNum = &apos;7&apos;isNum = 7  // Type &apos;number&apos; is not assignable to type &apos;string&apos;.//  实际上类型推断就是默认给变量加上对应的类型/">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-10-19T10:39:50.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈锋个人博客">
-<meta name="twitter:description" content="陈锋个人用来记录学习记录的博客文档">
+<meta name="twitter:title" content="即将一统天下的TypeScript(二)">
+<meta name="twitter:description" content="类型推论如果没有明确的指定类型，那么TypeScript会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，typescript就默认这个变量的类型就为这个类型。例如： 1234567let isNum = &apos;7&apos;isNum = 7  // Type &apos;number&apos; is not assignable to type &apos;string&apos;.//  实际上类型推断就是默认给变量加上对应的类型/">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -161,36 +162,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-即将一统天下的TypeScript(二)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/27/leetCode-计算n的幂/" class="archive-article-date">
-  	<time datetime="2019-07-27T02:11:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/27/leetCode-计算n的幂/">leetCode-计算n的幂</a>
+    <h1 class="article-title" itemprop="name">
+      即将一统天下的TypeScript(二)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/10/19/即将一统天下的TypeScript(二)/" class="archive-article-date">
+  	<time datetime="2019-10-19T07:18:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="类型推论"><a href="#类型推论" class="headerlink" title="类型推论"></a>类型推论</h3><p>如果没有明确的指定类型，那么<code>TypeScript</code>会依照类型推论的规则推断出一个类型。即最开始给变量什么类型，<code>typescript</code>就默认这个变量的类型就为这个类型。例如：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isNum = <span class="string">'7'</span></span><br><span class="line">isNum = <span class="number">7</span>  <span class="comment">// Type 'number' is not assignable to type 'string'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  实际上类型推断就是默认给变量加上对应的类型</span></span><br><span class="line"><span class="comment">// 上面的代码等价于</span></span><br><span class="line"><span class="keyword">let</span> isNum: <span class="built_in">string</span> = <span class="string">'7'</span></span><br><span class="line">isNum = <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 <code>any</code> 类型而完全不被类型检查：</strong></p>
+<a id="more"></a>
+
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isNum</span><br><span class="line">isNum = <span class="string">'7'</span></span><br><span class="line">isNum = <span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="联合类型"><a href="#联合类型" class="headerlink" title="联合类型"></a>联合类型</h3><p>联合类型表示变量在被赋值的时候可以取多种类型中的一种；只能为分隔中的任意一种类型，不能为其他类型。联合类型使用<code>|</code>分隔每个类型。例如：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isName: <span class="built_in">string</span> | <span class="built_in">number</span>;</span><br><span class="line">isName = <span class="number">4</span>;</span><br><span class="line">isName = <span class="string">'tom'</span></span><br><span class="line">isName = ture  <span class="comment">// Type 'boolean' is not assignable to type 'string | number'.</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="访问联合类型的属性或方法"><a href="#访问联合类型的属性或方法" class="headerlink" title="访问联合类型的属性或方法"></a>访问联合类型的属性或方法</h5><p>当 <code>TypeScript</code> 不确定一个联合类型的变量到底是哪个类型的时候，我们<strong>只能访问此联合类型的所有类型里共有的属性或方法</strong>：例如：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gettlength</span>(<span class="params">val: <span class="built_in">string</span> | <span class="built_in">number</span></span>): <span class="title">number</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val.length <span class="comment">// Property 'length' does not exist on type 'string | number'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是访问联合类型中的共有属性就没有问题</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gettlength</span>(<span class="params">val: <span class="built_in">string</span> | <span class="built_in">number</span></span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> val.toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="对象的类型–接口"><a href="#对象的类型–接口" class="headerlink" title="对象的类型–接口"></a>对象的类型–接口</h3><p>在 <code>TypeScript</code> 中，我们使用接口（<code>Interfaces</code>）来定义引用的类型。</p>
+<h4 id="什么是接口？"><a href="#什么是接口？" class="headerlink" title="什么是接口？"></a>什么是接口？</h4><p>这里的接口不是前端发送请求调用后端的接口。而是对引用类型的形状进行描述，可以理解为定义了一种类型，主要是对变量进行约束。约束主要体现在：</p>
+<ol>
+<li><strong>固定属性</strong> 定义变量不能比接口多属性，也不能比接口少属性。赋值的时候，变量的形状必须和接口的形状保持一致</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">	age: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    name: <span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> faker: Person = &#123;</span><br><span class="line">    name: <span class="string">'faker'</span> <span class="comment">//Type '&#123; name: string &#125;' is not assignable to type 'Person'.</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> xiaohu: Person = &#123;</span><br><span class="line">    name: <span class="string">'xiaohu'</span>,</span><br><span class="line">    age: <span class="number">25</span>,</span><br><span class="line">    theater: <span class="string">'lpl'</span> <span class="comment">// Type '&#123; name: string;age:number;theater: string &#125;' is not assignable to type 'Person'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>可选属性</strong>，有时我们希望不要完全匹配一个引用类型的形状，那么就可以选用可选属性</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123; <span class="comment">// ok</span></span><br><span class="line">    name:<span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">15</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> xiaohu: Person = &#123; <span class="comment">// ok</span></span><br><span class="line">    name: <span class="string">'xiaohu'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> faker: Person = &#123; <span class="comment">// error</span></span><br><span class="line">    age: <span class="number">15</span>,</span><br><span class="line">    theater: <span class="string">'lck'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>任意属性</strong>  有时候我们希望一个接口允许有任意属性，可以使用下面的方法</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    name: <span class="string">'uzi'</span>,</span><br><span class="line">    age: <span class="number">12</span>,</span><br><span class="line">    theater: <span class="string">'lpl'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>只读属性</strong> 有时候我们希望对象中的一些字段只能在创建的时候被赋值，那么可以用 <code>readonly</code> 定义只读属性：</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Person &#123;</span><br><span class="line">    readonly id: <span class="built_in">string</span>;</span><br><span class="line">    name: <span class="built_in">string</span>;</span><br><span class="line">    age?: <span class="built_in">number</span>;</span><br><span class="line">    [propName: <span class="built_in">string</span>]: <span class="built_in">any</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> uzi: Person = &#123;</span><br><span class="line">    id: <span class="string">'006'</span>,</span><br><span class="line">    name: <span class="string">'uzi'</span></span><br><span class="line">&#125;</span><br><span class="line">uzi.id = <span class="string">'008'</span> <span class="comment">// Cannot assign to 'id' because it is a constant or a read-only property</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意，只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候</strong>：</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://lc-SKlAvrQk.cn-n1.lcfile.com/ecda14f4784dca90a370/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,77 +264,136 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2019/10/19/即将一统天下的TypeScript(二)/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/22/动态展示列表格的实现/" class="archive-article-date">
-  	<time datetime="2019-07-22T14:01:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/10/即将一统天下的TypeScript(一)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">即将一统天下的TypeScript(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/22/动态展示列表格的实现/">动态展示列表格的实现</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">element ui</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
 
-          
+  
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+
   
-    </div></section>
-  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '1847cd52b6b1868d0a27',
+  	clientSecret: '2dd6b382c3d850116c46ebe3bb9fad8223d2a5cf',
+  	repo: 'chenyuhu.js.org',
+  	owner: 'chenyuhu',
+  	admin: ['chenyuhu'],
+  	id: 'Sat Oct 19 2019 15:18:46 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
 
     
 
@@ -303,8 +426,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
