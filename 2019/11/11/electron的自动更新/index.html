@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://chenyuhu.github.io">
-  <title>Archives: 2019 | 陈锋个人博客</title>
+  <title>electron的自动更新 | 陈锋个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="陈锋个人用来记录学习记录的博客文档">
-<meta name="keywords" content="chenyuhu209">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈锋个人博客">
-<meta property="og:url" content="http://chenyuhu.github.io/archives/2019/page/2/index.html">
+  <meta name="description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
+<meta name="keywords" content="前端,electron,自动更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="electron的自动更新">
+<meta property="og:url" content="http://chenyuhu.github.io/2019/11/11/electron的自动更新/index.html">
 <meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="陈锋个人用来记录学习记录的博客文档">
+<meta property="og:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2019-11-17T02:36:32.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈锋个人博客">
-<meta name="twitter:description" content="陈锋个人用来记录学习记录的博客文档">
+<meta name="twitter:title" content="electron的自动更新">
+<meta name="twitter:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -161,36 +162,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-electron的自动更新" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/30/使用vueCli3-X搭建electron项目/" class="archive-article-date">
-  	<time datetime="2019-05-30T08:53:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/使用vueCli3-X搭建electron项目/">使用vueCli3.X搭建electron项目</a>
+    <h1 class="article-title" itemprop="name">
+      electron的自动更新
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/11/electron的自动更新/" class="archive-article-date">
+  	<time datetime="2019-11-11T07:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有<code>autoUpdater</code>，本次我们选择的是<code>electron-autoUpdater</code>这个第三方插件。先说一下electron自带的<code>autoUpdater</code>的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而<code>electron-autoUpdater</code>却有这个功能，这个功能最大的好处就是我们可以在正式环境下存在多个版本，时时监听下载进度；</p>
+<a id="more"></a>
+
+<h4 id="electron-autoUpdater的使用说明"><a href="#electron-autoUpdater的使用说明" class="headerlink" title="electron-autoUpdater的使用说明"></a><code>electron-autoUpdater</code>的使用说明</h4><h5 id="1、引入"><a href="#1、引入" class="headerlink" title="1、引入"></a>1、引入</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add electron-autoUpdater electron-log electron-store electron-is-dev</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>electron-autoUpdater</code>自动更新所需的依赖</li>
+<li><code>electron-log</code>可将更新的日志存放在本地</li>
+<li><code>electron-store</code>electron的应用商店</li>
+<li><code>electron-is-dev</code>判断electron是否为dev环境</li>
+</ul>
+<hr>
+<h5 id="2、electron-autoUpdater中的各个事件的说明"><a href="#2、electron-autoUpdater中的各个事件的说明" class="headerlink" title="2、electron-autoUpdater中的各个事件的说明"></a>2、<code>electron-autoUpdater</code>中的各个事件的说明</h5><h6 id="Event-error"><a href="#Event-error" class="headerlink" title="Event: error"></a><code>Event: error</code></h6><p>当更新发生错误时触发</p>
+<p>返回：</p>
+<ul>
+<li><code>error</code> Error</li>
+</ul>
+<h6 id="Event-checking-for-update"><a href="#Event-checking-for-update" class="headerlink" title="Event: checking-for-update"></a><code>Event: checking-for-update</code></h6><p>当开始检查更新的时候触发</p>
+<p>​    返回：</p>
+<ul>
+<li>没有返回值</li>
+</ul>
+<h6 id="Event-update-available"><a href="#Event-update-available" class="headerlink" title="Event: update-available"></a><code>Event: update-available</code></h6><p>当检查到有可用的更新包时触发</p>
+<p>​    返回：</p>
+ <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "version": "0.1.0", // 最新版本号</span><br><span class="line">    "files": [&#123;</span><br><span class="line">        "url": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">        "sha512": "xxx",</span><br><span class="line">        "size": 899999562, // 包的大小</span><br><span class="line">    &#125;],</span><br><span class="line">    "path": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">    "sha512": "xxx",</span><br><span class="line">    "relaseDate": "2019-11-07T10:26:23.286Z", // 新包发布时间</span><br><span class="line">    "relaseNotes": "修复XXX", // 新包发布内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="Event：-update-not-available"><a href="#Event：-update-not-available" class="headerlink" title="Event： update-not-available"></a><code>Event： update-not-available</code></h6><p>当检测到没有可用更新时触发</p>
+<p>​    返回：</p>
+<ul>
+<li>没有返回值</li>
+</ul>
+<h6 id="Event-download-progress"><a href="#Event-download-progress" class="headerlink" title="Event: download-progress"></a><code>Event: download-progress</code></h6><p>监听下载进度</p>
+<p>​    返回：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "delta":"22108084", // 差量</span><br><span class="line">    "bytesPerSecond": "20243532", // 下载速度</span><br><span class="line">    "percent":'73.32491979950667', // 已下载的百分比</span><br><span class="line">    "total":"82879166", // 更新包的大小</span><br><span class="line">    "transferred": "82879166" // 已下载的包大小</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="Event-update-downloaded"><a href="#Event-update-downloaded" class="headerlink" title="Event: update-downloaded"></a><code>Event: update-downloaded</code></h6><p>当下载完更新包后触发</p>
+<p>​    返回值：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "version": "0.1.0", // 最新版本号</span><br><span class="line">    "files": [&#123;</span><br><span class="line">        "url": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">        "sha512": "xxx",</span><br><span class="line">        "size": 899999562, // 包的大小</span><br><span class="line">    &#125;],</span><br><span class="line">    "path": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">    "sha512": "xxx",</span><br><span class="line">    "relaseDate": "2019-11-07T10:26:23.286Z", // 新包发布时间</span><br><span class="line">    "relaseNotes": "修复XXX", // 新包发布内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p><strong><code>autoUpdater</code>具有以下方法</strong></p>
+<ul>
+<li><p><code>autoUpdater.checkForUpdates() =&gt; Promise&lt;UpdateCheckResult&gt;</code></p>
+<p>询问服务器是否有可用更新</p>
+</li>
+<li><p><code>autoUpdater.checkForUpdatesAndNotify() ⇒ Promise&lt; | UpdateCheckResult&gt;</code></p>
+<p>询问服务器是否有更新，下载并通知更新是否可用。</p>
+</li>
+<li><p><code>autoUpdater.downloadUpdate(cancellationToken) ⇒ Promise&lt;any&gt;</code></p>
+<p>开始手动下载更新。如果<code>autoDownload</code>option设置为，则可以使用此方法<code>false</code></p>
+<p><strong>返回</strong>：<code>Promise&lt;any&gt;</code>-下载文件的路径。</p>
+<ul>
+<li><code>cancelToken CancellationToken</code></li>
+</ul>
+</li>
+<li><p><code>autoUpdater.getFeedURL()⇒ undefined| null|String autoUpdater.setFeedURL(options)</code></p>
+<p>配置更新提供程序。如果value为<code>string</code>，则<a href="https://www.electron.build/configuration/publish#genericserveroptions" target="_blank" rel="noopener">GenericServerOptions的</a>值将设置为<code>url</code>。</p>
+<p>选项<code>PublishConfiguration</code>| <code>String</code>| <code>GithubOptions</code>| <code>S3Options</code>| <code>SpacesOptions</code>| <code>GenericServerOptions</code>| <code>BintrayOptions</code>-如果要覆盖中的配置<code>app-update.yml</code>。</p>
+</li>
+<li><p><code>autoUpdater.channel （getter和setter</code></p>
+<p>使用定义自动更新程序将要遵循的频道（请参阅<a href="https://www.electron.build/tutorials/release-using-channels#release_using_channels" target="_blank" rel="noopener">使用频道进行自动更新</a>），<code>autoUpdater.channel = &#39;beta&#39;</code>或使用来获取当前频道<code>currentChannel = autoUpdater.channel</code>。</p>
+</li>
+<li><p><code>autoUpdater.quitAndInstall(isSilent, isForceRunAfter)</code></p>
+<p>下载更新后，重新启动应用程序并安装更新。仅应在<code>update-downloaded</code>发出后调用它。</p>
+<p><strong>注意：</strong> <code>autoUpdater.quitAndInstall()</code>将首先关闭所有应用程序窗口，之后才发出<code>before-quit</code>事件<code>app</code>。这与正常的退出事件序列不同。</p>
+<p><code>isSilent</code> <code>Boolean</code>- <em>仅Windows</em>以静默模式运行安装程序。默认为<code>false</code>。</p>
+<p><code>isForceRunAfter</code>- <code>Boolean</code>即使无提示安装也可以在完成后运行应用程序。不适用于<code>macOS</code>。忽略是否<code>isSilent</code>设置为<code>false</code>。</p>
+</li>
+</ul>
+<hr>
+<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><ul>
+<li><p><code>autoDownload</code>= <code>true</code>布尔值-发现更新后是否自动下载更新。</p>
+</li>
+<li><p><code>autoInstallOnAppQuit</code>= <code>true</code>布尔值-是否在应用程序退出时自动安装下载的更新（如果<code>quitAndInstall</code>以前未调用过）。</p>
+<p>仅适用于Windows和Linux。</p>
+</li>
+<li><p><code>allowPrerelease</code>= <code>false</code>布尔- <em>只有GitHub的供应商。</em>是否允许更新到预发行版本。默认为<code>true</code>应用程序版本是否包含预发行组件（例如<code>0.12.1-alpha.1</code>，此处<code>alpha</code>为预发行组件），否则为<code>false</code>。</p>
+<p>如果为<code>true</code>，则允许降级（<code>allowDowngrade</code>将设置为<code>true</code>）。</p>
+</li>
+<li><p><code>fullChangelog</code>= <code>false</code>布尔- <em>只有GitHub的供应商。</em>获取所有发行说明（从当前版本到最新版本），而不仅仅是最新版本。</p>
+</li>
+<li><p><code>allowDowngrade</code>= <code>false</code>布尔值-是否允许版本降级（当来自Beta频道的用户想要返回稳定频道时）。</p>
+<p>仅当渠道不同时才考虑在内（就语义版本而言，预发行版本组件）。</p>
+</li>
+<li><p><code>currentVersion</code> SemVer-当前的应用程序版本。</p>
+</li>
+<li><p><code>channel</code>字符串-获取更新频道。不适用于GitHub。<code>channel</code>仅在先前设置的情况下，不会从更新配置中返回。</p>
+</li>
+<li><p><code>requestHeaders</code> [键：字符串]：字符串-请求标头。</p>
+</li>
+<li><p><code>logger</code> 日志您可以通过以下界面传递<a href="https://github.com/megahertz/electron-log" target="_blank" rel="noopener">electronic-log</a>，<a href="https://github.com/winstonjs/winston" target="_blank" rel="noopener">winston</a>或其他日志：<code>{ info(), warn(), error() }</code>。如果您要禁用日志记录功能，请将其设置为<code>null</code>。</p>
+</li>
+<li><p><code>signals</code>= <code>new UpdaterSignal(this)</code> <a href="https://www.electron.build/auto-update.html#UpdaterSignal" target="_blank" rel="noopener">UpdaterSignal-</a>为了类型安全，您可以使用信号，例如<code>autoUpdater.signals.updateDownloaded(() =&gt; {})</code>代替<code>autoUpdater.on(&#39;update-available&#39;, () =&gt; {})</code></p>
+</li>
+</ul>
+<hr>
+<h4 id="自动更新示例"><a href="#自动更新示例" class="headerlink" title="自动更新示例"></a>自动更新示例</h4><ul>
+<li>在<code>package.json</code>中的配置</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ....</span><br><span class="line">    "build": &#123;</span><br><span class="line">    	"releaseInfo": &#123;</span><br><span class="line">          "releaseNotes": "优化我的订单、信息库、角色功能,新增退费、退费订单审核" // 更新的内容</span><br><span class="line">        &#125;,</span><br><span class="line">		"publish": [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"provider"</span>: <span class="string">"generic"</span>,</span><br><span class="line">            "url": "http://127.0.0.1:8080/download/", // 推送的地址</span><br><span class="line">            "channel": "latest" // 检查更新的渠道</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">	&#125; </span><br><span class="line">	....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在跟目录下添加<code>app-updater.yml 和 dev-app-updater.yml</code>文件用作检查更新文件的配置</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在app-update.yml中配置检查更新的地址，这个地址为正式环境下的更新地址</span></span><br><span class="line"><span class="attr">provider:</span> <span class="string">'generic'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">'http://127.0.0.1:8080/download/'</span></span><br><span class="line"><span class="attr">channel:</span> <span class="string">'latest'</span></span><br><span class="line"><span class="comment"># 在dev-app-update.yml中配置检查更新的地址，这个地址为开发环境下的地址</span></span><br><span class="line"><span class="attr">provider:</span> <span class="string">'generic'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">'http://127.0.0.1:8080/test-download/'</span></span><br><span class="line"><span class="attr">channel:</span> <span class="string">'latest'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>APPAutoUpdater.js</code>中</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; autoUpdater &#125; = <span class="built_in">require</span>(<span class="string">'electron-updater'</span>)</span><br><span class="line"><span class="keyword">const</span> Store = <span class="built_in">require</span>(<span class="string">'electron-store'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line">global.store = <span class="keyword">new</span> Store()</span><br><span class="line">autoUpdater.logger = <span class="built_in">require</span>(<span class="string">'electron-log'</span>)</span><br><span class="line"><span class="comment">// 监听输出的日志</span></span><br><span class="line">autoUpdater.logger.transports.file.level = <span class="string">'info'</span></span><br><span class="line"><span class="comment">// 设置当前的版本号为自动更新的版本号</span></span><br><span class="line">global.currentVersion = autoUpdater.currentVersion</span><br><span class="line">autoUpdater.autoDownload = <span class="literal">false</span> <span class="comment">// 将自动下载包设置为false，产品的需求是让用户自己点击更新下载</span></span><br><span class="line"><span class="comment">// 监听自动更新的几个事件</span></span><br><span class="line"><span class="comment">// 监听如果自动更新失败将停止安装</span></span><br><span class="line">autoUpdater.on(<span class="string">'error'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 检查更新是否已开始时发出</span></span><br><span class="line">autoUpdater.on(<span class="string">'checking-for-update'</span>, () =&gt; &#123;&#125;)</span><br><span class="line"><span class="comment">// 检测有可更新的应用包</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-available'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 检测没有可用更新时发出</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-not-available'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 下载可更新的安装包</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-downloaded'</span>, info =&gt; &#123;</span><br><span class="line"> <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 监听下载进度</span></span><br><span class="line">autoUpdater.on(<span class="string">'download-progress'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  checkVersion() &#123;</span><br><span class="line">    <span class="keyword">if</span> (global.isDev) &#123;</span><br><span class="line">      autoUpdater.updateConfigPath = path.join(__dirname, <span class="string">'../../dev-app-update.yml'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    autoUpdater.checkForUpdates()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在electron的主进程中 index.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 主页面一旦加载完成后就开始执行检查更新</span></span><br><span class="line">mainWindow.webContents.on(<span class="string">'did-finish-load'</span>, () =&gt; &#123;</span><br><span class="line">    AppUpdater.checkVersion()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://lc-SKlAvrQk.cn-n1.lcfile.com/ecda14f4784dca90a370/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -200,154 +341,138 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PC端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自动更新</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/front//" class="article-tag-list-link color1">front</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2019/11/11/electron的自动更新/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/30/ReactNative学习指南/" class="archive-article-date">
-  	<time datetime="2019-05-30T08:21:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/07/即将一统天下的TypeScript（三）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">即将一统天下的TypeScript（三）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/ReactNative学习指南/">ReactNative学习指南</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">移动端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/front//" class="article-tag-list-link color1">front</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/05/30/我家菜谱/" class="archive-article-date">
-  	<time datetime="2019-05-30T03:42:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/我家菜谱/">我家菜谱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">菜谱</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">生活</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/life//" class="article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
+
   
-    </div></section>
+
   
+
+  
+
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: '1847cd52b6b1868d0a27',
+  	clientSecret: '2dd6b382c3d850116c46ebe3bb9fad8223d2a5cf',
+  	repo: 'chenyuhu.js.org',
+  	owner: 'chenyuhu',
+  	admin: ['chenyuhu'],
+  	id: 'Mon Nov 11 2019 15:47:29 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container')
+}
+</script>
 
     
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/">&laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
-  
 
 
           </div>
@@ -378,8 +503,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
