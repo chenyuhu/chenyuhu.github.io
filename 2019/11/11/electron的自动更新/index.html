@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="陈锋个人博客">
 <meta property="og:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-17T02:36:32.485Z">
+<meta property="og:updated_time" content="2019-11-25T09:14:15.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="electron的自动更新">
 <meta name="twitter:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
@@ -237,10 +237,19 @@
 <li><code>cancelToken CancellationToken</code></li>
 </ul>
 </li>
-<li><p><code>autoUpdater.getFeedURL()⇒ undefined| null|String autoUpdater.setFeedURL(options)</code></p>
+<li><p><code>autoUpdater.getFeedURL()⇒ undefined| null|String</code></p>
 <p>配置更新提供程序。如果value为<code>string</code>，则<a href="https://www.electron.build/configuration/publish#genericserveroptions" target="_blank" rel="noopener">GenericServerOptions的</a>值将设置为<code>url</code>。</p>
 <p>选项<code>PublishConfiguration</code>| <code>String</code>| <code>GithubOptions</code>| <code>S3Options</code>| <code>SpacesOptions</code>| <code>GenericServerOptions</code>| <code>BintrayOptions</code>-如果要覆盖中的配置<code>app-update.yml</code>。</p>
 </li>
+<li><p><code>autoUpdater.setFeedURL(options)</code></p>
+<p>设置检查更新的地址参数类型为</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    provider: 'generic',</span><br><span class="line">    url, </span><br><span class="line">    channel: 'latest' </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
 <li><p><code>autoUpdater.channel （getter和setter</code></p>
 <p>使用定义自动更新程序将要遵循的频道（请参阅<a href="https://www.electron.build/tutorials/release-using-channels#release_using_channels" target="_blank" rel="noopener">使用频道进行自动更新</a>），<code>autoUpdater.channel = &#39;beta&#39;</code>或使用来获取当前频道<code>currentChannel = autoUpdater.channel</code>。</p>
 </li>
@@ -589,6 +598,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -597,11 +610,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">axios</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,7 +622,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">PC端</a>
+                <a href="javascript:void(0)" class="js-tag color1">axios</a>
               </li>
              
               <li class="article-tag-list-item">
