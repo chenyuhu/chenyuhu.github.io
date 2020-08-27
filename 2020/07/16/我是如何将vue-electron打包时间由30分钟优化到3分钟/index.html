@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://chenyuhu.github.io">
-  <title>electron的自动更新 | 陈锋个人博客</title>
+  <title>我是如何将electron-vue打包时间由30分钟优化到3分钟 | 陈锋个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
-<meta name="keywords" content="前端,electron,自动更新">
+  <meta name="description" content="前言在electron的项目中打包的方式有两种：一种是electron-packager,另一种是electron-builder。这两种打包的区别我会在后面的文章详细说明，在这里就不多加赘述了。 在electron-vue项目中我们使用的electron-builder方式进行打包，后来发现打包速度的快慢和选用哪种方式无关，和你的webpack配置有着相当大的关系!! 下面就来动手修改elect">
+<meta name="keywords" content="前端,electron,webpack,打包优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="electron的自动更新">
-<meta property="og:url" content="http://chenyuhu.github.io/2019/11/11/electron的自动更新/index.html">
+<meta property="og:title" content="我是如何将electron-vue打包时间由30分钟优化到3分钟">
+<meta property="og:url" content="http://chenyuhu.github.io/2020/07/16/我是如何将vue-electron打包时间由30分钟优化到3分钟/index.html">
 <meta property="og:site_name" content="陈锋个人博客">
-<meta property="og:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
+<meta property="og:description" content="前言在electron的项目中打包的方式有两种：一种是electron-packager,另一种是electron-builder。这两种打包的区别我会在后面的文章详细说明，在这里就不多加赘述了。 在electron-vue项目中我们使用的electron-builder方式进行打包，后来发现打包速度的快慢和选用哪种方式无关，和你的webpack配置有着相当大的关系!! 下面就来动手修改elect">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2019-11-25T09:14:15.277Z">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-fb3ddcb8d2f3ac3686412df5cdddabc9_1440w.jpg">
+<meta property="og:updated_time" content="2020-08-27T16:37:31.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="electron的自动更新">
-<meta name="twitter:description" content="前言我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有autoUpdater，本次我们选择的是electron-autoUpdater这个第三方插件。先说一下electron自带的autoUpdater的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而electr">
+<meta name="twitter:title" content="我是如何将electron-vue打包时间由30分钟优化到3分钟">
+<meta name="twitter:description" content="前言在electron的项目中打包的方式有两种：一种是electron-packager,另一种是electron-builder。这两种打包的区别我会在后面的文章详细说明，在这里就不多加赘述了。 在electron-vue项目中我们使用的electron-builder方式进行打包，后来发现打包速度的快慢和选用哪种方式无关，和你的webpack配置有着相当大的关系!! 下面就来动手修改elect">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-fb3ddcb8d2f3ac3686412df5cdddabc9_1440w.jpg">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -162,150 +164,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-electron的自动更新" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-我是如何将vue-electron打包时间由30分钟优化到3分钟" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      electron的自动更新
+      我是如何将electron-vue打包时间由30分钟优化到3分钟
     </h1>
   
 
         
-        <a href="/2019/11/11/electron的自动更新/" class="archive-article-date">
-  	<time datetime="2019-11-11T07:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
+        <a href="/2020/07/16/我是如何将vue-electron打包时间由30分钟优化到3分钟/" class="archive-article-date">
+  	<time datetime="2020-07-16T14:30:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们在开发一款electron桌面应用中，我们希望只要我们发布了最新的版本，用户就会收到新包的更新提示。在electron自带的有<code>autoUpdater</code>，本次我们选择的是<code>electron-autoUpdater</code>这个第三方插件。先说一下electron自带的<code>autoUpdater</code>的缺点是没有办法控制什么时候下载(目前我看官方文档是没有这个功能，如果有欢迎指正)，且不知道下载的进度；而<code>electron-autoUpdater</code>却有这个功能，这个功能最大的好处就是我们可以在正式环境下存在多个版本，时时监听下载进度；</p>
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在electron的项目中打包的方式有两种：一种是<code>electron-packager</code>,另一种是<code>electron-builder</code>。这两种打包的区别我会在后面的文章详细说明，在这里就不多加赘述了。</p>
+<p>在<code>electron-vue</code>项目中我们使用的<code>electron-builder</code>方式进行打包，后来发现打包速度的快慢和选用哪种方式无关，和你的<code>webpack</code>配置有着相当大的关系!!</p>
+<p>下面就来动手修改<code>electron-vue</code>的<code>webpack</code>配置</p>
 <a id="more"></a>
 
-<h4 id="electron-autoUpdater的使用说明"><a href="#electron-autoUpdater的使用说明" class="headerlink" title="electron-autoUpdater的使用说明"></a><code>electron-autoUpdater</code>的使用说明</h4><h5 id="1、引入"><a href="#1、引入" class="headerlink" title="1、引入"></a>1、引入</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn add electron-autoUpdater electron-log electron-store electron-is-dev</span><br></pre></td></tr></table></figure>
+<h3 id="分析哪些配置影响打包速度"><a href="#分析哪些配置影响打包速度" class="headerlink" title="分析哪些配置影响打包速度"></a>分析哪些配置影响打包速度</h3><p>要优化就要先分析。我们要知道到底哪些配置影响了我们的打包速度？</p>
+<h4 id="打包进度条展示，可以查看打包进度的百分比"><a href="#打包进度条展示，可以查看打包进度的百分比" class="headerlink" title="打包进度条展示，可以查看打包进度的百分比"></a>打包进度条展示，可以查看打包进度的百分比</h4><p><code>simple-progress-webpack-plugin</code> 可以查看打包进度的百分比和占用的时间</p>
+<p><strong>安装</strong></p>
+<p><code>yarn add simple-progress-webpack-plugin -D</code></p>
+<p><strong>修改<code>webpack.renderer.config.js</code>和<code>webpack.main.config.js</code>文件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> SimpleProgressWebpackPlugin = <span class="built_in">require</span>(<span class="string">'simple-progress-webpack-plugin'</span>)</span><br><span class="line">...</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> SimpleProgressWebpackPlugin()</span><br><span class="line">  ]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>electron-autoUpdater</code>自动更新所需的依赖</li>
-<li><code>electron-log</code>可将更新的日志存放在本地</li>
-<li><code>electron-store</code>electron的应用商店</li>
-<li><code>electron-is-dev</code>判断electron是否为dev环境</li>
-</ul>
-<hr>
-<h5 id="2、electron-autoUpdater中的各个事件的说明"><a href="#2、electron-autoUpdater中的各个事件的说明" class="headerlink" title="2、electron-autoUpdater中的各个事件的说明"></a>2、<code>electron-autoUpdater</code>中的各个事件的说明</h5><h6 id="Event-error"><a href="#Event-error" class="headerlink" title="Event: error"></a><code>Event: error</code></h6><p>当更新发生错误时触发</p>
-<p>返回：</p>
-<ul>
-<li><code>error</code> Error</li>
-</ul>
-<h6 id="Event-checking-for-update"><a href="#Event-checking-for-update" class="headerlink" title="Event: checking-for-update"></a><code>Event: checking-for-update</code></h6><p>当开始检查更新的时候触发</p>
-<p>​    返回：</p>
-<ul>
-<li>没有返回值</li>
-</ul>
-<h6 id="Event-update-available"><a href="#Event-update-available" class="headerlink" title="Event: update-available"></a><code>Event: update-available</code></h6><p>当检查到有可用的更新包时触发</p>
-<p>​    返回：</p>
- <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "version": "0.1.0", // 最新版本号</span><br><span class="line">    "files": [&#123;</span><br><span class="line">        "url": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">        "sha512": "xxx",</span><br><span class="line">        "size": 899999562, // 包的大小</span><br><span class="line">    &#125;],</span><br><span class="line">    "path": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">    "sha512": "xxx",</span><br><span class="line">    "relaseDate": "2019-11-07T10:26:23.286Z", // 新包发布时间</span><br><span class="line">    "relaseNotes": "修复XXX", // 新包发布内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过这个可以分析出：在打包过程中<code>builder-renderer</code>的时间最长，这个就是我们所要优化的的点。</p>
+<h4 id="分析webpack-renderer-config-js源码"><a href="#分析webpack-renderer-config-js源码" class="headerlink" title="分析webpack.renderer.config.js源码"></a>分析<code>webpack.renderer.config.js</code>源码</h4><p>在<code>webpack.renderer.config.js</code>中我们发现了一个远古时期的webpack插件代码，这个插件基本上处于一种放弃的状态，已经有3年没有更新了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> BabiliWebpackPlugin = <span class="built_in">require</span>(<span class="string">'babili-webpack-plugin'</span>)</span><br><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;</span><br><span class="line">  rendererConfig.devtool = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">  rendererConfig.plugins.push(</span><br><span class="line">    <span class="keyword">new</span> BabiliWebpackPlugin(),</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
-<h6 id="Event：-update-not-available"><a href="#Event：-update-not-available" class="headerlink" title="Event： update-not-available"></a><code>Event： update-not-available</code></h6><p>当检测到没有可用更新时触发</p>
-<p>​    返回：</p>
-<ul>
-<li>没有返回值</li>
-</ul>
-<h6 id="Event-download-progress"><a href="#Event-download-progress" class="headerlink" title="Event: download-progress"></a><code>Event: download-progress</code></h6><p>监听下载进度</p>
-<p>​    返回：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "delta":"22108084", // 差量</span><br><span class="line">    "bytesPerSecond": "20243532", // 下载速度</span><br><span class="line">    "percent":'73.32491979950667', // 已下载的百分比</span><br><span class="line">    "total":"82879166", // 更新包的大小</span><br><span class="line">    "transferred": "82879166" // 已下载的包大小</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后面经过调研发现这个库只是用来清除console的，要是这样的话，那就直接删除。</p>
+<p>惊喜的发现打包的速度居然提高到300秒到400秒，这是一个惊人的进步！！！</p>
+<p>后来通过和后端同事交流，觉得后端打包多线程的方式挺好的，但是JavaScript的单线程的，那么能不能将单线程的JavaScript给变成多线程呢？</p>
+<p>答案，当然是可以的。在万能的谷歌（去他妈的百度）的帮助下，我终于找到一个将单线程变成多线程的插件<code>happypack</code>;</p>
+<p>在webpack构建过程中，我们需要使用Loader对js，css，图片，字体等文件做转换操作，并且转换的文件数据量也是非常大的，且这些转换操作不能并发处理文件，而是需要一个个文件进行处理，HappyPack的基本原理是将这部分任务分解到多个子进程中去并行处理，子进程处理完成后把结果发送到主进程中，从而减少总的构建时间。</p>
+<p>而HappyPack是让webpack对loader的执行过程，从单一进程形式扩展为多进程模式，也就是将任务分解给多个子进程去并发的执行，子进程处理完后再把结果发送给主进程。从而加速代码构建 与 DLL动态链接库结合来使用更佳。</p>
+<p>先看一下使用规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// happypack 配置文件</span></span><br><span class="line"><span class="keyword">const</span> Happypack = <span class="built_in">require</span>(<span class="string">'happypack'</span>)</span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">'os'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> happypackThreadPool = Happypack.ThreadPool(&#123; <span class="attr">size</span>: os.cpus().length &#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = [</span><br><span class="line">  <span class="comment">// js的编辑控制器</span></span><br><span class="line">  <span class="keyword">new</span> Happypack(&#123;</span><br><span class="line">    id: <span class="string">'babel'</span>,</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        loader: <span class="string">'babel-loader'</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">          plugins: [<span class="string">'lodash'</span>],</span><br><span class="line">          presets: [[<span class="string">'env'</span>, &#123; <span class="attr">modules</span>: <span class="literal">false</span>, <span class="attr">targets</span>: &#123; <span class="attr">node</span>: <span class="number">10</span> &#125; &#125;]]</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    threadPool: happypackThreadPool</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="comment">// iview的编辑控制器</span></span><br><span class="line">  <span class="keyword">new</span> Happypack(&#123;</span><br><span class="line">    id: <span class="string">'iview'</span>,</span><br><span class="line">    threadPool: happypackThreadPool,</span><br><span class="line">    loaders: [<span class="string">'babel-loader'</span>]</span><br><span class="line">  &#125;),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack 配置文件</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: <span class="regexp">/iview.src.*?js$/</span>,</span><br><span class="line">    loader: <span class="string">'happypack/loader?id=iview'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">    loader: <span class="string">'happypack/loader?id=babel'</span>,</span><br><span class="line">    include: [</span><br><span class="line">      path.resolve(<span class="string">'node_modules/@sishu/im'</span>),</span><br><span class="line">      path.resolve(<span class="string">'src'</span>),</span><br><span class="line">      path.resolve(<span class="string">'node_modules/vue-echarts'</span>),</span><br><span class="line">      path.resolve(<span class="string">'node_modules/resize-detector'</span>)</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<h6 id="Event-update-downloaded"><a href="#Event-update-downloaded" class="headerlink" title="Event: update-downloaded"></a><code>Event: update-downloaded</code></h6><p>当下载完更新包后触发</p>
-<p>​    返回值：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "version": "0.1.0", // 最新版本号</span><br><span class="line">    "files": [&#123;</span><br><span class="line">        "url": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">        "sha512": "xxx",</span><br><span class="line">        "size": 899999562, // 包的大小</span><br><span class="line">    &#125;],</span><br><span class="line">    "path": "text Setup 0.1.0.exe", // 包的名称</span><br><span class="line">    "sha512": "xxx",</span><br><span class="line">    "relaseDate": "2019-11-07T10:26:23.286Z", // 新包发布时间</span><br><span class="line">    "relaseNotes": "修复XXX", // 新包发布内容</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><p><strong><code>autoUpdater</code>具有以下方法</strong></p>
-<ul>
-<li><p><code>autoUpdater.checkForUpdates() =&gt; Promise&lt;UpdateCheckResult&gt;</code></p>
-<p>询问服务器是否有可用更新</p>
-</li>
-<li><p><code>autoUpdater.checkForUpdatesAndNotify() ⇒ Promise&lt; | UpdateCheckResult&gt;</code></p>
-<p>询问服务器是否有更新，下载并通知更新是否可用。</p>
-</li>
-<li><p><code>autoUpdater.downloadUpdate(cancellationToken) ⇒ Promise&lt;any&gt;</code></p>
-<p>开始手动下载更新。如果<code>autoDownload</code>option设置为，则可以使用此方法<code>false</code></p>
-<p><strong>返回</strong>：<code>Promise&lt;any&gt;</code>-下载文件的路径。</p>
-<ul>
-<li><code>cancelToken CancellationToken</code></li>
-</ul>
-</li>
-<li><p><code>autoUpdater.getFeedURL()⇒ undefined| null|String</code></p>
-<p>配置更新提供程序。如果value为<code>string</code>，则<a href="https://www.electron.build/configuration/publish#genericserveroptions" target="_blank" rel="noopener">GenericServerOptions的</a>值将设置为<code>url</code>。</p>
-<p>选项<code>PublishConfiguration</code>| <code>String</code>| <code>GithubOptions</code>| <code>S3Options</code>| <code>SpacesOptions</code>| <code>GenericServerOptions</code>| <code>BintrayOptions</code>-如果要覆盖中的配置<code>app-update.yml</code>。</p>
-</li>
-<li><p><code>autoUpdater.setFeedURL(options)</code></p>
-<p>设置检查更新的地址参数类型为</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    provider: 'generic',</span><br><span class="line">    url, </span><br><span class="line">    channel: 'latest' </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li><p><code>autoUpdater.channel （getter和setter</code></p>
-<p>使用定义自动更新程序将要遵循的频道（请参阅<a href="https://www.electron.build/tutorials/release-using-channels#release_using_channels" target="_blank" rel="noopener">使用频道进行自动更新</a>），<code>autoUpdater.channel = &#39;beta&#39;</code>或使用来获取当前频道<code>currentChannel = autoUpdater.channel</code>。</p>
-</li>
-<li><p><code>autoUpdater.quitAndInstall(isSilent, isForceRunAfter)</code></p>
-<p>下载更新后，重新启动应用程序并安装更新。仅应在<code>update-downloaded</code>发出后调用它。</p>
-<p><strong>注意：</strong> <code>autoUpdater.quitAndInstall()</code>将首先关闭所有应用程序窗口，之后才发出<code>before-quit</code>事件<code>app</code>。这与正常的退出事件序列不同。</p>
-<p><code>isSilent</code> <code>Boolean</code>- <em>仅Windows</em>以静默模式运行安装程序。默认为<code>false</code>。</p>
-<p><code>isForceRunAfter</code>- <code>Boolean</code>即使无提示安装也可以在完成后运行应用程序。不适用于<code>macOS</code>。忽略是否<code>isSilent</code>设置为<code>false</code>。</p>
-</li>
-</ul>
-<hr>
-<h4 id="API"><a href="#API" class="headerlink" title="API"></a>API</h4><ul>
-<li><p><code>autoDownload</code>= <code>true</code>布尔值-发现更新后是否自动下载更新。</p>
-</li>
-<li><p><code>autoInstallOnAppQuit</code>= <code>true</code>布尔值-是否在应用程序退出时自动安装下载的更新（如果<code>quitAndInstall</code>以前未调用过）。</p>
-<p>仅适用于Windows和Linux。</p>
-</li>
-<li><p><code>allowPrerelease</code>= <code>false</code>布尔- <em>只有GitHub的供应商。</em>是否允许更新到预发行版本。默认为<code>true</code>应用程序版本是否包含预发行组件（例如<code>0.12.1-alpha.1</code>，此处<code>alpha</code>为预发行组件），否则为<code>false</code>。</p>
-<p>如果为<code>true</code>，则允许降级（<code>allowDowngrade</code>将设置为<code>true</code>）。</p>
-</li>
-<li><p><code>fullChangelog</code>= <code>false</code>布尔- <em>只有GitHub的供应商。</em>获取所有发行说明（从当前版本到最新版本），而不仅仅是最新版本。</p>
-</li>
-<li><p><code>allowDowngrade</code>= <code>false</code>布尔值-是否允许版本降级（当来自Beta频道的用户想要返回稳定频道时）。</p>
-<p>仅当渠道不同时才考虑在内（就语义版本而言，预发行版本组件）。</p>
-</li>
-<li><p><code>currentVersion</code> SemVer-当前的应用程序版本。</p>
-</li>
-<li><p><code>channel</code>字符串-获取更新频道。不适用于GitHub。<code>channel</code>仅在先前设置的情况下，不会从更新配置中返回。</p>
-</li>
-<li><p><code>requestHeaders</code> [键：字符串]：字符串-请求标头。</p>
-</li>
-<li><p><code>logger</code> 日志您可以通过以下界面传递<a href="https://github.com/megahertz/electron-log" target="_blank" rel="noopener">electronic-log</a>，<a href="https://github.com/winstonjs/winston" target="_blank" rel="noopener">winston</a>或其他日志：<code>{ info(), warn(), error() }</code>。如果您要禁用日志记录功能，请将其设置为<code>null</code>。</p>
-</li>
-<li><p><code>signals</code>= <code>new UpdaterSignal(this)</code> <a href="https://www.electron.build/auto-update.html#UpdaterSignal" target="_blank" rel="noopener">UpdaterSignal-</a>为了类型安全，您可以使用信号，例如<code>autoUpdater.signals.updateDownloaded(() =&gt; {})</code>代替<code>autoUpdater.on(&#39;update-available&#39;, () =&gt; {})</code></p>
-</li>
-</ul>
-<hr>
-<h4 id="自动更新示例"><a href="#自动更新示例" class="headerlink" title="自动更新示例"></a>自动更新示例</h4><ul>
-<li>在<code>package.json</code>中的配置</li>
-</ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    ....</span><br><span class="line">    "build": &#123;</span><br><span class="line">    	"releaseInfo": &#123;</span><br><span class="line">          "releaseNotes": "优化我的订单、信息库、角色功能,新增退费、退费订单审核" // 更新的内容</span><br><span class="line">        &#125;,</span><br><span class="line">		"publish": [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"provider"</span>: <span class="string">"generic"</span>,</span><br><span class="line">            "url": "http://127.0.0.1:8080/download/", // 推送的地址</span><br><span class="line">            "channel": "latest" // 检查更新的渠道</span><br><span class="line">          &#125;</span><br><span class="line">        ],</span><br><span class="line">	&#125; </span><br><span class="line">	....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在跟目录下添加<code>app-updater.yml 和 dev-app-updater.yml</code>文件用作检查更新文件的配置</li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在app-update.yml中配置检查更新的地址，这个地址为正式环境下的更新地址</span></span><br><span class="line"><span class="attr">provider:</span> <span class="string">'generic'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">'http://127.0.0.1:8080/download/'</span></span><br><span class="line"><span class="attr">channel:</span> <span class="string">'latest'</span></span><br><span class="line"><span class="comment"># 在dev-app-update.yml中配置检查更新的地址，这个地址为开发环境下的地址</span></span><br><span class="line"><span class="attr">provider:</span> <span class="string">'generic'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">'http://127.0.0.1:8080/test-download/'</span></span><br><span class="line"><span class="attr">channel:</span> <span class="string">'latest'</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在<code>APPAutoUpdater.js</code>中</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; autoUpdater &#125; = <span class="built_in">require</span>(<span class="string">'electron-updater'</span>)</span><br><span class="line"><span class="keyword">const</span> Store = <span class="built_in">require</span>(<span class="string">'electron-store'</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line">global.store = <span class="keyword">new</span> Store()</span><br><span class="line">autoUpdater.logger = <span class="built_in">require</span>(<span class="string">'electron-log'</span>)</span><br><span class="line"><span class="comment">// 监听输出的日志</span></span><br><span class="line">autoUpdater.logger.transports.file.level = <span class="string">'info'</span></span><br><span class="line"><span class="comment">// 设置当前的版本号为自动更新的版本号</span></span><br><span class="line">global.currentVersion = autoUpdater.currentVersion</span><br><span class="line">autoUpdater.autoDownload = <span class="literal">false</span> <span class="comment">// 将自动下载包设置为false，产品的需求是让用户自己点击更新下载</span></span><br><span class="line"><span class="comment">// 监听自动更新的几个事件</span></span><br><span class="line"><span class="comment">// 监听如果自动更新失败将停止安装</span></span><br><span class="line">autoUpdater.on(<span class="string">'error'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 检查更新是否已开始时发出</span></span><br><span class="line">autoUpdater.on(<span class="string">'checking-for-update'</span>, () =&gt; &#123;&#125;)</span><br><span class="line"><span class="comment">// 检测有可更新的应用包</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-available'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 检测没有可用更新时发出</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-not-available'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 下载可更新的安装包</span></span><br><span class="line">autoUpdater.on(<span class="string">'update-downloaded'</span>, info =&gt; &#123;</span><br><span class="line"> <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 监听下载进度</span></span><br><span class="line">autoUpdater.on(<span class="string">'download-progress'</span>, info =&gt; &#123;</span><br><span class="line">  <span class="comment">// todo something</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  checkVersion() &#123;</span><br><span class="line">    <span class="keyword">if</span> (global.isDev) &#123;</span><br><span class="line">      autoUpdater.updateConfigPath = path.join(__dirname, <span class="string">'../../dev-app-update.yml'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    autoUpdater.checkForUpdates()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在electron的主进程中 index.js</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 主页面一旦加载完成后就开始执行检查更新</span></span><br><span class="line">mainWindow.webContents.on(<span class="string">'did-finish-load'</span>, () =&gt; &#123;</span><br><span class="line">    AppUpdater.checkVersion()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>使用规则很好理解，针对webpack常规的loader部分直接引用happypack的loader，同时参数id是关联HappyPack插件的唯一标识。在插件里示例化一个HappyPack实例，这里引用真实的编译loader，同时制定线程池等参数。这部分流程上的原理下面会做介绍。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-fb3ddcb8d2f3ac3686412df5cdddabc9_1440w.jpg" alt="原理图"><br>这里借用的大木老师的图(侵删)</p>
+<p>这样开启的多线程可以提高大约5%的打包速度；同时我们还能发现每次打包其实不用每回都将所有文件都重新打包一遍，那么能不能有种插件，将不需要重新构建的文件给缓存下来？</p>
+<p>既然想起来了，那就找找，<code>clean-webpack-plugin</code>就能完美的解决这个问题，</p>
+<p><strong>安装</strong></p>
+<p><code>yarn add -D clean-webpack-plugin</code></p>
+<p><strong>使用</strong></p>
+<p>在webpack文件夹的相同位置创建一个<code>webpack.config.dll.js</code>文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">'clean-webpack-plugin'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    vendor: [</span><br><span class="line">      <span class="string">'vue'</span>,</span><br><span class="line">      <span class="string">'vuex'</span>,</span><br><span class="line">      <span class="string">'vue-router'</span>,</span><br><span class="line">      <span class="string">'element-ui'</span>,</span><br><span class="line">      <span class="string">'axios'</span>,</span><br><span class="line">      <span class="string">'rxdb'</span>,</span><br><span class="line">      <span class="string">'rxjs'</span>,</span><br><span class="line">      <span class="string">'iview'</span>,</span><br><span class="line">      <span class="string">'echarts'</span>,</span><br><span class="line">      <span class="string">'pdfjs-dist'</span>,</span><br><span class="line">      <span class="string">'uuid'</span>,</span><br><span class="line">      <span class="string">'xss'</span>,</span><br><span class="line">      <span class="string">'xlsx'</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name]_dll_[hash:6].js'</span>, <span class="comment">// 产生的文件名</span></span><br><span class="line">    path: path.resolve(__dirname,<span class="string">'../dist/dll'</span>),</span><br><span class="line">    library: <span class="string">'[name]_dll_[hash:6]'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> CleanWebpackPlugin(&#123;</span><br><span class="line">      root: path.resolve(__dirname,<span class="string">'../dist/dll'</span>),</span><br><span class="line">      dry: <span class="literal">false</span> <span class="comment">// 启动删除文件</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">      name: path.resolve(__dirname, <span class="string">'../dist/dll'</span>,<span class="string">'[name].dll.manifest.json'</span>),</span><br><span class="line">      path: path.resolve(__dirname, <span class="string">'../dist/dll'</span>, <span class="string">'[name].dll.manifest.json'</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -354,13 +266,28 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">自动更新</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">打包优化</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/front//" class="article-tag-list-link color1">front</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -410,7 +337,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2019/11/11/electron的自动更新/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://chenyuhu.github.io/2020/07/16/我是如何将vue-electron打包时间由30分钟优化到3分钟/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -424,18 +351,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/16/我是如何将vue-electron打包时间由30分钟优化到3分钟/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我是如何将electron-vue打包时间由30分钟优化到3分钟
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/07/即将一统天下的TypeScript（三）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">即将一统天下的TypeScript（三）</div>
+    <a href="/2019/11/11/electron的自动更新/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">electron的自动更新</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -483,7 +401,7 @@ if(true){
   	repo: 'chenyuhu.js.org',
   	owner: 'chenyuhu',
   	admin: ['chenyuhu'],
-  	id: 'Mon Nov 11 2019 15:47:29 GMT+0800',
+  	id: 'Thu Jul 16 2020 22:30:37 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container')
