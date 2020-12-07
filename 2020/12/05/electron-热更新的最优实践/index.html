@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="陈锋个人博客">
 <meta property="og:description" content="前言很久以前写过一篇electron的自动更新实例，在这个里面发现无论我更改了任何东西，都必须要下载全部的更新包，安装后才能实现更新。如果我们只是更改了一部分渲染进程的代码甚至只是更新了几张图片，就需要下载全部的安装包，这样的操作对于用户来说其实是有点太不友好了。于是就有了热更新的想法，在我们只有静态资源更新或者渲染进程发生变化的时候，就可以只更新渲染进程就可以实现更新，而不必下载全部的安装包；这">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/public/img/hotUpdate.png">
+<meta property="og:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/hotUpdate.png">
 <meta property="og:image" content="http://buglcfile.sishuxuefu.com/53534ffe832b1557aa1f.png/WX20201205-151102.png">
 <meta property="og:image" content="http://buglcfile.sishuxuefu.com/408af5b4dd995789e458.png/WX20201205-154207.png">
-<meta property="og:updated_time" content="2020-12-07T03:57:48.511Z">
+<meta property="og:updated_time" content="2020-12-07T04:00:28.755Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="electron 热更新的最优实践">
 <meta name="twitter:description" content="前言很久以前写过一篇electron的自动更新实例，在这个里面发现无论我更改了任何东西，都必须要下载全部的更新包，安装后才能实现更新。如果我们只是更改了一部分渲染进程的代码甚至只是更新了几张图片，就需要下载全部的安装包，这样的操作对于用户来说其实是有点太不友好了。于是就有了热更新的想法，在我们只有静态资源更新或者渲染进程发生变化的时候，就可以只更新渲染进程就可以实现更新，而不必下载全部的安装包；这">
-<meta name="twitter:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/public/img/hotUpdate.png">
+<meta name="twitter:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/hotUpdate.png">
   
     <link rel="alternative" href="/atom.xml" title="陈锋个人博客" type="application/atom+xml">
   
@@ -195,7 +195,7 @@
 <blockquote>
 <p>注：以下所有操作都是在配置asar为false的基础上进行的</p>
 </blockquote>
-<p><img src="public/img/hotUpdate.png" alt="热更新实现逻辑"></p>
+<p><img src="./hotUpdate.png" alt="热更新实现逻辑"></p>
 <p>在这个流程图中可以发现有以下几个问题：</p>
 <ol>
 <li>渲染进程如何和主进程分开打包 :grey_question:</li>
@@ -644,19 +644,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">打包优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">菜谱</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">打包优化</a>
               </li>
             
             <div class="clearfix"></div>
