@@ -17,9 +17,9 @@
 <meta property="og:description" content="前言很久以前写过一篇electron的自动更新实例，在这个里面发现无论我更改了任何东西，都必须要下载全部的更新包，安装后才能实现更新。如果我们只是更改了一部分渲染进程的代码甚至只是更新了几张图片，就需要下载全部的安装包，这样的操作对于用户来说其实是有点太不友好了。于是就有了热更新的想法，在我们只有静态资源更新或者渲染进程发生变化的时候，就可以只更新渲染进程就可以实现更新，而不必下载全部的安装包；这">
 <meta property="og:locale" content="zh-cn">
 <meta property="og:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/hotUpdate.png">
-<meta property="og:image" content="http://buglcfile.sishuxuefu.com/53534ffe832b1557aa1f.png/WX20201205-151102.png">
-<meta property="og:image" content="http://buglcfile.sishuxuefu.com/408af5b4dd995789e458.png/WX20201205-154207.png">
-<meta property="og:updated_time" content="2020-12-07T04:00:28.755Z">
+<meta property="og:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/bundle.png">
+<meta property="og:image" content="http://chenyuhu.github.io/2020/12/05/electron-热更新的最优实践/builder.png">
+<meta property="og:updated_time" content="2020-12-07T04:05:25.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="electron 热更新的最优实践">
 <meta name="twitter:description" content="前言很久以前写过一篇electron的自动更新实例，在这个里面发现无论我更改了任何东西，都必须要下载全部的更新包，安装后才能实现更新。如果我们只是更改了一部分渲染进程的代码甚至只是更新了几张图片，就需要下载全部的安装包，这样的操作对于用户来说其实是有点太不友好了。于是就有了热更新的想法，在我们只有静态资源更新或者渲染进程发生变化的时候，就可以只更新渲染进程就可以实现更新，而不必下载全部的安装包；这">
@@ -212,7 +212,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// webpack.renderer.config.js文件中的配置修改为</span></span><br><span class="line">output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].js'</span>,</span><br><span class="line">    libraryTarget: <span class="string">'commonjs2'</span>,</span><br><span class="line">    path: path.join(__dirname, <span class="string">'../dist/electron/bundle'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <p>执行yarn build 查看打包后的文件夹展示是否为</p>
-<p><img src="http://buglcfile.sishuxuefu.com/53534ffe832b1557aa1f.png/WX20201205-151102.png" alt="打包后的文件展示"></p>
+<p><img src="./bundle.png" alt="打包后的文件展示"></p>
 <blockquote>
 <p>bundle为渲染进程为文件夹</p>
 <p>static 额外的静态文件</p>
@@ -232,7 +232,7 @@
 <p>这个scripts必须在打包完成后才能执行，否者压缩的文件不是最新的，甚至没有压缩文件产出；</p>
 </blockquote>
 <p>打完包后产出；</p>
-<p><img src="http://buglcfile.sishuxuefu.com/408af5b4dd995789e458.png/WX20201205-154207.png" alt="打完包后产出"></p>
+<p><img src="./builder.png" alt="打完包后产出"></p>
 <p>这样的话就实现了，渲染进程的压缩；在更新中就可以实现只下载bundle.zip就可以更新；以前需要下载大约174MB的文件，现在只需要下载18MB的文件，下载约节省了90%流量，大大提高用户的更新速度</p>
 <h4 id="three-如何判断当前版本是热更新版本需要更新的版本；或者说热更新版本存放在哪个位置-grey-question"><a href="#three-如何判断当前版本是热更新版本需要更新的版本；或者说热更新版本存放在哪个位置-grey-question" class="headerlink" title=":three: 如何判断当前版本是热更新版本需要更新的版本；或者说热更新版本存放在哪个位置:grey_question:"></a>:three: 如何判断当前版本是热更新版本需要更新的版本；或者说热更新版本存放在哪个位置:grey_question:</h4><ul>
 <li>热更新版本存放的位置</li>
